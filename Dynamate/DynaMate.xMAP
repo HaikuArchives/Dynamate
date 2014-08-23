@@ -1,0 +1,511 @@
+File:    0	"/boot/beos/system/lib/libroot.so"
+File:    1	"/boot/beos/system/lib/libbe.so"
+File:    3	"/boot/rel/src/kit/runtime/global_destructor_chain.c"
+File:    4	"/boot/rel/src/kit/runtime/init_term.c"
+File:    5	"/boot/rel/src/kit/runtime/runtime.c"
+File:    8	"/boot/rel/src/kit/kernel/common/start_dyn.c"
+File:    9	"/boot/home/projs/DynaMate/DmWorld.cpp"
+File:   10	"/boot/home/projs/DynaMate/DmWindow.cpp"
+File:   11	"/boot/home/projs/bak/DynaMate/DmView.cpp"
+File:   12	"/boot/home/projs/DynaMate/DmTitleView.cpp"
+
+Code section, size = 10792 bytes
+000000	PR 	.__sinit									file = "*Linker-Generated*"
+00001C	PR 	.__destroy_global_chain						file = "global_destructor_chain.c"
+000070	PR 	.__RTOC										file = "init_term.c"
+000078	PR 	._init_routine_
+0000C8	PR 	._term_routine_
+0000F8	PR 	.__start									file = "start_dyn.c"
+0001B8	PR 	.main										file = "DmWorld.cpp"
+000244	PR 	.__dt__16HelloApplicationFv
+0002AC	PR 	.__ct__16HelloApplicationFv
+000398	PR 	.__ct__11HelloWindowF5BRect					file = "DmWindow.cpp"
+00052C	PR 	.LaunchTitle__11HelloWindowFv
+0005D4	PR 	.KillTitle__11HelloWindowFv
+000650	PR 	.__dt__11DmTitleViewFv
+0006B8	PR 	.LaunchGame__11HelloWindowFv
+000754	PR 	.KillGame__11HelloWindowFv
+0007E8	PR 	.save256__11HelloWindowFP6BEntryUlPUc
+0008A0	PR 	.load256__11HelloWindowFP6BEntryUlPUc
+000970	PR 	.MessageReceived__11HelloWindowFP8BMessage
+000B78	PR 	.QuitRequested__11HelloWindowFv
+000BFC	PR 	.__dt__11HelloWindowFv
+000C64	PR 	.__ct__9HelloViewF5BRectPcPUcP11HelloWindow	file = "DmView.cpp"
+000E00	PR 	.const2point__9HelloViewFUc
+0010AC	PR 	.get_next__9HelloViewFPQ29HelloView7pstruct
+00161C	PR 	.go__9HelloViewFQ29HelloView7pstruct
+001878	PR 	.explode__9HelloViewFiib
+0019B0	PR 	.update__9HelloViewFii
+001A54	PR 	.move__9HelloViewFiiii
+001C4C	PR 	.MouseDown__9HelloViewF6BPoint
+001DEC	PR 	.Draw__9HelloViewF5BRect
+001E78	PR 	.__dt__9HelloViewFv
+001F10	PR 	.__ct__11DmTitleViewF5BRectPcP7BBitmapUsUsUc	file = "DmTitleView.cpp"
+0020B0	PR 	.Draw__11DmTitleViewF5BRect
+0024E0	GL 	.__register_fragment						file = "*Linker-Generated*"
+0024F8	GL 	.find_thread
+002510	GL 	.memcpy
+002528	GL 	._call_init_routines_
+002540	GL 	.__nw__FUl
+002558	GL 	.__ct__12BApplicationFPCc
+002570	GL 	.__dt__12BApplicationFv
+002588	GL 	.__dl__FPv
+0025A0	GL 	.__ct__7BWindowF5BRectPCc11window_typeUlUl
+0025B8	GL 	.__dt__7BWindowFv
+0025D0	GL 	.__ct__9entry_refFv
+0025E8	GL 	.FindRef__8BMessageCFPCcP9entry_ref
+002600	GL 	.strcpy
+002618	GL 	.SetTitle__7BWindowFPCc
+002630	GL 	.__ct__6BEntryFPC9entry_refb
+002648	GL 	.__ct__5BFileFPC6BEntryUl
+002660	GL 	.InitCheck__5BNodeCFv
+002678	GL 	.RemoveChild__7BWindowFP5BView
+002690	GL 	.__ct__5BViewF5BRectPCcUlUl
+0026A8	GL 	.__dt__5BViewFv
+0026C0	GL 	.DrawBitmap__5BViewFPC7BBitmap5BRect5BRect
+0026D8	GL 	.snooze
+0026F0	GL 	.__or__5BRectCF5BRect
+002708	GL 	.PostMessage__7BLooperFUl
+002720	GL 	.GetMouse__5BViewFP6BPointPUlb
+002738	GL 	.__ct__7BBitmapF5BRect11color_spacebb
+002750	GL 	.Bits__7BBitmapCFv
+002768	GL 	.AddChild__7BWindowFP5BViewP5BView
+002780	GL 	.__dt__9entry_refFv
+002798	GL 	.DrawBitmap__5BViewFPC7BBitmap6BPoint
+0027B0	GL 	.MovePenTo__5BViewF6BPoint
+0027C8	GL 	.DrawString__5BViewFPCcP16escapement_delta
+0027E0	GL 	.SetFontSize__5BViewFf
+0027F8	GL 	.sprintf
+002810	GL 	.MessageReceived__7BWindowFP8BMessage
+002828	GL 	.SetBits__7BBitmapFPCvll11color_space
+002840	GL 	.malloc
+002858	GL 	.OffsetTo__5BRectF6BPoint
+002870	GL 	._thread_do_exit_notification
+002888	GL 	.exit
+0028A0	GL 	.__unregister_fragment
+0028B8	GL 	.__ptr_glue									file = "runtime.c"
+0028CC	TI 	@7											file = "global_destructor_chain.c"
+0028D8	TI 	@2											file = "init_term.c"
+0028E4	TI 	@4
+0028F0	TI 	@5											file = "start_dyn.c"
+0028FC	TI 	@263										file = "DmWorld.cpp"
+002908	TI 	@266
+002914	TI 	@279
+002920	TI 	@269										file = "DmWindow.cpp"
+00292C	TI 	@276
+002938	TI 	@281
+002944	TI 	@284
+002950	TI 	@290
+00295C	TI 	@295
+002968	TI 	@303
+002974	TI 	@317
+002980	TI 	@337
+00298C	TI 	@340
+002998	TI 	@352
+0029A4	TI 	@285										file = "DmView.cpp"
+0029B0	TI 	@422
+0029BC	TI 	@451
+0029C8	TI 	@461
+0029D4	TI 	@473
+0029E0	TI 	@486
+0029EC	TI 	@510
+0029F8	TI 	@514
+002A04	TI 	@520
+002A10	TI 	@268										file = "DmTitleView.cpp"
+002A1C	TI 	@343
+
+Data section, size = 27104 bytes (TOC anchor = 000000)
+000000	TC 	sprintf										file = "*Linker-Generated*"
+000004	TC 	exit
+000008	TC 	__dl__FPv
+00000C	TC 	__register_fragment
+000010	TC 	memcpy
+000014	TC 	strcpy
+000018	TC 	_call_init_routines_
+00001C	TC 	malloc
+000020	TC 	find_thread
+000024	TC 	__unregister_fragment
+000028	TC 	__nw__FUl
+00002C	TC 	_thread_do_exit_notification
+000030	TC 	snooze
+000034	TC 	SetTitle__7BWindowFPCc
+000038	TC 	__ct__7BBitmapF5BRect11color_spacebb
+00003C	TC 	__ct__5BViewF5BRectPCcUlUl
+000040	TC 	__ct__12BApplicationFPCc
+000044	TC 	SetFontSize__5BViewFf
+000048	TC 	MessageReceived__7BWindowFP8BMessage
+00004C	TC 	GetMouse__5BViewFP6BPointPUlb
+000050	TC 	__ct__5BFileFPC6BEntryUl
+000054	TC 	MovePenTo__5BViewF6BPoint
+000058	TC 	OffsetTo__5BRectF6BPoint
+00005C	TC 	__ct__6BEntryFPC9entry_refb
+000060	TC 	PostMessage__7BLooperFUl
+000064	TC 	AddChild__7BWindowFP5BViewP5BView
+000068	TC 	DrawString__5BViewFPCcP16escapement_delta
+00006C	TC 	DrawBitmap__5BViewFPC7BBitmap6BPoint
+000070	TC 	__dt__7BWindowFv
+000074	TC 	RemoveChild__7BWindowFP5BView
+000078	TC 	InitCheck__5BNodeCFv
+00007C	TC 	__ct__9entry_refFv
+000080	TC 	__dt__9entry_refFv
+000084	TC 	__or__5BRectCF5BRect
+000088	TC 	__dt__5BViewFv
+00008C	TC 	Bits__7BBitmapCFv
+000090	TC 	FindRef__8BMessageCFPCcP9entry_ref
+000094	TC 	SetBits__7BBitmapFPCvll11color_space
+000098	TC 	DrawBitmap__5BViewFPC7BBitmap5BRect5BRect
+00009C	TC 	__dt__12BApplicationFv
+0000A0	TC 	__ct__7BWindowF5BRectPCc11window_typeUlUl
+0000A4	TC 	__global_destructor_chain
+0000A8	TC 	__exception_table_end__
+0000AC	TC 	__exception_table_start__
+0000B0	TC 	__data_end__
+0000B4	TC 	__data_start__
+0000B8	TC 	__code_end__
+0000BC	TC 	__code_start__
+0000C0	TC 	__main_thread_id
+0000C4	TC 	environ
+0000C8	TC 	argv_save
+0000CC	TC 	__vt__16HelloApplication
+0000D0	TC 	be_app
+0000D4	TC 	__vt__11DmTitleView
+0000D8	TC 	B_ORIGIN
+0000DC	TC 	__vt__11HelloWindow
+0000E0	TC 	__vt__9HelloView
+0000E4	TC 	be_plain_font
+0000E8	TC 	magic_template								file = "start_dyn.c"
+0000EC	TC 	default_environ
+0000F0	TC 	@273										file = "DmWorld.cpp"
+0000F4	TC 	@335										file = "DmWindow.cpp"
+0000F8	TC 	@334
+0000FC	TC 	@333
+000100	TC 	@274
+000104	TC 	title
+000108	TC 	@263
+00010C	TC 	pieces										file = "DmView.cpp"
+000110	TC 	@342										file = "DmTitleView.cpp"
+000114	TC 	@340
+000118	TC 	@336
+00011C	TC 	@332
+000120	TC 	@330
+000124	TC 	@328
+000128	TC 	@325
+00012C	TC 	@324
+000130	TC 	@323
+000134	TC 	@322
+000138	TC 	@321
+00013C	TC 	@319
+000140	TC 	@318
+000144	TC 	@317
+000148	TC 	@265
+00014C	TC 	@264
+000150	TC 	@263
+000154	TD 	fragmentID									file = "init_term.c"
+000158	TD 	@277										file = "DmWorld.cpp"
+00015C	TD 	@276
+000160	TD 	@275
+000164	TD 	@274
+000168	TD 	@267										file = "DmWindow.cpp"
+00016C	TD 	@266
+000170	TD 	@265
+000174	TD 	@264
+000178	TD 	@507										file = "DmView.cpp"
+000180	TD 	@457
+000188	TD 	@283
+00018C	TD 	@282
+000190	TD 	@261										file = "DmTitleView.cpp"
+000194	TD 	@266
+000198	TD 	@341
+00019C	TD 	@339
+0001A0	TD 	@338
+0001A4	TD 	@337
+0001A8	TD 	@335
+0001AC	TD 	@334
+0001B0	TD 	@333
+0001B4	TD 	@331
+0001B8	TD 	@329
+0001BC	TD 	@327
+0001C0	TD 	@326
+0001C4	TD 	@320
+0001C8	TD 	@316
+0001CC	TD 	@315
+0001D0	TD 	@314
+0001D4	TD 	@313
+0001D8	TD 	@312
+0001DC	TD 	@311
+0001E0	TD 	@262
+0001E4	DS 	_term_routine_								file = "init_term.c"
+0001EC	DS 	_init_routine_
+0001F4	DS 	__start										file = "start_dyn.c"
+0001FC	DS 	__dt__16HelloApplicationFv					file = "DmWorld.cpp"
+000204	DS 	__dt__11HelloWindowFv						file = "DmWindow.cpp"
+00020C	DS 	QuitRequested__11HelloWindowFv
+000214	DS 	MessageReceived__11HelloWindowFP8BMessage
+00021C	DS 	__dt__9HelloViewFv							file = "DmView.cpp"
+000224	DS 	Draw__9HelloViewF5BRect
+00022C	DS 	MouseDown__9HelloViewF6BPoint
+000234	DS 	__dt__11DmTitleViewFv						file = "DmTitleView.cpp"
+00023C	DS 	Draw__11DmTitleViewF5BRect
+000244	TB 	@262										file = "DmWorld.cpp"
+000256	TB 	@278
+000280	TB 	@268										file = "DmWindow.cpp"
+0002AA	TB 	@275
+0002BC	TB 	@289
+0002CE	TB 	@302
+0002E0	TB 	@316
+0002F2	TB 	@336
+000318	TB 	@284										file = "DmView.cpp"
+000342	TB 	@267										file = "DmTitleView.cpp"
+000358	RW 	magic_template								file = "start_dyn.c"
+000360	RW 	@1
+000370	RW 	default_environ
+000378	RW 	@273										file = "DmWorld.cpp"
+000399	RW 	@280
+0003AA	RW 	@282
+0003B8	RW 	__RTTI__11BArchivable
+0003C0	RW 	@283
+0003CC	RW 	@284
+0003D8	RW 	__RTTI__8BHandler
+0003E0	RW 	@285
+0003E8	RW 	@286
+0003FC	RW 	__RTTI__7BLooper
+000404	RW 	@287
+000414	RW 	@288
+000430	RW 	__RTTI__12BApplication
+000438	RW 	@281
+00045C	RW 	__RTTI__16HelloApplication
+000464	RW 	__vt__16HelloApplication
+000528	RW 	title										file = "DmWindow.cpp"
+004128	RW 	@263
+004131	RW 	@274
+004136	RW 	@333
+00415E	RW 	@334
+004163	RW 	@335
+00416F	RW 	@341
+00417B	RW 	@343
+004188	RW 	__RTTI__11BArchivable
+004190	RW 	@344
+00419C	RW 	@345
+0041A8	RW 	__RTTI__8BHandler
+0041B0	RW 	@346
+0041B8	RW 	@347
+0041CC	RW 	__RTTI__7BLooper
+0041D4	RW 	@348
+0041DC	RW 	@349
+0041F8	RW 	__RTTI__7BWindow
+004200	RW 	@342
+004224	RW 	__RTTI__11HelloWindow
+00422C	RW 	__vt__11HelloWindow
+004304	RW 	pieces										file = "DmView.cpp"
+006604	RW 	@521
+00660E	RW 	@523
+00661C	RW 	__RTTI__11BArchivable
+006624	RW 	@524
+006630	RW 	@525
+00663C	RW 	__RTTI__8BHandler
+006644	RW 	@526
+00664C	RW 	@527
+006660	RW 	__RTTI__5BView
+006668	RW 	@522
+006684	RW 	__RTTI__9HelloView
+00668C	RW 	__vt__9HelloView
+006770	RW 	@263										file = "DmTitleView.cpp"
+006776	RW 	@264
+00677C	RW 	@265
+006783	RW 	@317
+006791	RW 	@318
+006798	RW 	@319
+0067A0	RW 	@321
+0067B1	RW 	@322
+0067BE	RW 	@323
+0067CC	RW 	@324
+0067D9	RW 	@325
+0067E7	RW 	@328
+0067F6	RW 	@330
+006811	RW 	@332
+006828	RW 	@336
+006843	RW 	@340
+006854	RW 	@342
+00686A	RW 	@344
+006876	RW 	@346
+006884	RW 	__RTTI__11BArchivable
+00688C	RW 	@347
+006898	RW 	@348
+0068A4	RW 	__RTTI__8BHandler
+0068AC	RW 	@349
+0068B4	RW 	@350
+0068C8	RW 	__RTTI__5BView
+0068D0	RW 	@345
+0068EC	RW 	__RTTI__11DmTitleView
+0068F4	RW 	__vt__11DmTitleView
+0069D8	RW 	__global_destructor_chain					file = "global_destructor_chain.c"
+
+Import container "libroot.so"
+Current Version = 00000000, Old Implementation = 00000000
+000000	DS 	sprintf
+000001	RW 	environ
+000002	DS 	exit
+000003	DS 	__dl__FPv
+000004	DS 	__register_fragment
+000005	DS 	memcpy
+000006	DS 	strcpy
+000007	DS 	_call_init_routines_
+000008	RW 	argv_save
+000009	DS 	malloc
+00000A	DS 	find_thread
+00000B	DS 	__unregister_fragment
+00000C	RW 	__main_thread_id
+00000D	DS 	__nw__FUl
+00000E	DS 	_thread_do_exit_notification
+00000F	DS 	snooze
+
+Import container "libbe.so"
+Current Version = 00000000, Old Implementation = 00000000
+000010	DS 	SetHighColor__5BViewF9rgb_color
+000011	DS 	SetTitle__7BWindowFPCc
+000012	DS 	SetResizingMode__5BViewFUl
+000013	DS 	SetFont__5BViewFPC5BFontUl
+000014	DS 	RefsReceived__12BApplicationFP8BMessage
+000015	DS 	AttachedToWindow__5BViewFv
+000016	DS 	AppActivated__12BApplicationFb
+000017	DS 	__ct__7BBitmapF5BRect11color_spacebb
+000018	DS 	__ct__5BViewF5BRectPCcUlUl
+000019	DS 	ResolveSpecifier__5BViewFP8BMessagelP8BMessagelPCc
+00001A	RW 	be_app
+00001B	DS 	Archive__12BApplicationCFP8BMessageb
+00001C	DS 	Perform__7BWindowFUlPv
+00001D	DS 	RemoveCommonFilter__7BLooperFP14BMessageFilter
+00001E	DS 	MenusEnded__7BWindowFv
+00001F	DS 	__ct__12BApplicationFPCc
+000020	DS 	_ReservedWindow5__7BWindowFv
+000021	DS 	_ReservedHandler4__8BHandlerFv
+000022	DS 	_ReservedWindow4__7BWindowFv
+000023	DS 	_ReservedHandler1__8BHandlerFv
+000024	DS 	_ReservedWindow3__7BWindowFv
+000025	DS 	QuitRequested__12BApplicationFv
+000026	DS 	_ReservedWindow8__7BWindowFv
+000027	DS 	_ReservedWindow2__7BWindowFv
+000028	DS 	_ReservedWindow7__7BWindowFv
+000029	DS 	_ReservedWindow1__7BWindowFv
+00002A	DS 	Perform__5BViewFUlPv
+00002B	DS 	_ReservedWindow6__7BWindowFv
+00002C	DS 	_ReservedHandler3__8BHandlerFv
+00002D	DS 	WindowActivated__7BWindowFb
+00002E	DS 	WorkspacesChanged__7BWindowFUlUl
+00002F	DS 	_ReservedArchivable1__11BArchivableFv
+000030	DS 	Archive__5BViewCFP8BMessageb
+000031	DS 	task_looper__7BWindowFv
+000032	DS 	SetFontSize__5BViewFf
+000033	DS 	_ReservedHandler2__8BHandlerFv
+000034	DS 	GetSupportedSuites__7BWindowFP8BMessage
+000035	DS 	MessageReceived__7BWindowFP8BMessage
+000036	DS 	DispatchMessage__7BWindowFP8BMessageP8BHandler
+000037	DS 	GetMouse__5BViewFP6BPointPUlb
+000038	DS 	__ct__5BFileFPC6BEntryUl
+000039	DS 	SetPenSize__5BViewFf
+00003A	DS 	_ReservedApplication8__12BApplicationFv
+00003B	DS 	MovePenTo__5BViewF6BPoint
+00003C	DS 	GetSupportedSuites__12BApplicationFP8BMessage
+00003D	DS 	_ReservedApplication7__12BApplicationFv
+00003E	DS 	_ReservedArchivable3__11BArchivableFv
+00003F	DS 	MessageReceived__5BViewFP8BMessage
+000040	DS 	MenusBeginning__7BWindowFv
+000041	DS 	GetPreferredSize__5BViewFPfPf
+000042	DS 	DetachedFromWindow__5BViewFv
+000043	DS 	WindowActivated__5BViewFb
+000044	DS 	ReadyToRun__12BApplicationFv
+000045	DS 	_ReservedApplication1__12BApplicationFv
+000046	DS 	OffsetTo__5BRectF6BPoint
+000047	DS 	ScreenChanged__7BWindowF5BRect11color_space
+000048	DS 	ResolveSpecifier__7BWindowFP8BMessagelP8BMessagelPCc
+000049	DS 	__ct__6BEntryFPC9entry_refb
+00004A	DS 	MouseDown__5BViewF6BPoint
+00004B	DS 	PostMessage__7BLooperFUl
+00004C	DS 	ResizeToPreferred__5BViewFv
+00004D	DS 	FrameResized__7BWindowFff
+00004E	DS 	MakeFocus__5BViewFb
+00004F	DS 	AddChild__7BWindowFP5BViewP5BView
+000050	DS 	AddCommonFilter__7BLooperFP14BMessageFilter
+000051	DS 	Minimize__7BWindowFb
+000052	DS 	DrawString__5BViewFPCcP16escapement_delta
+000053	DS 	KeyDown__5BViewFPCcl
+000054	DS 	ScrollTo__5BViewF6BPoint
+000055	DS 	SetCommonFilterList__7BLooperFP5BList
+000056	DS 	DrawBitmap__5BViewFPC7BBitmap6BPoint
+000057	DS 	Archive__7BWindowCFP8BMessageb
+000058	DS 	_ReservedApplication4__12BApplicationFv
+000059	DS 	__dt__7BWindowFv
+00005A	DS 	Hide__7BWindowFv
+00005B	DS 	Pulse__12BApplicationFv
+00005C	DS 	_ReservedApplication6__12BApplicationFv
+00005D	DS 	Quit__7BWindowFv
+00005E	DS 	RemoveChild__7BWindowFP5BView
+00005F	DS 	Show__7BWindowFv
+000060	DS 	MouseUp__5BViewF6BPoint
+000061	DS 	_ReservedApplication2__12BApplicationFv
+000062	DS 	Pulse__5BViewFv
+000063	DS 	_ReservedApplication5__12BApplicationFv
+000064	DS 	_ReservedApplication3__12BApplicationFv
+000065	DS 	InitCheck__5BNodeCFv
+000066	DS 	Quit__12BApplicationFv
+000067	DS 	__ct__9entry_refFv
+000068	DS 	FrameMoved__7BWindowF6BPoint
+000069	DS 	KeyUp__5BViewFPCcl
+00006A	DS 	__dt__9entry_refFv
+00006B	DS 	__or__5BRectCF5BRect
+00006C	DS 	ConvertToMessage__7BLooperFPvl
+00006D	DS 	__dt__5BViewFv
+00006E	DS 	Bits__7BBitmapCFv
+00006F	DS 	Hide__5BViewFv
+000070	DS 	SetFlags__5BViewFUl
+000071	DS 	Show__5BViewFv
+000072	DS 	Run__7BLooperFv
+000073	DS 	SetDrawingMode__5BViewF12drawing_mode
+000074	DS 	_ReservedView2__5BViewFv
+000075	DS 	_ReservedView3__5BViewFv
+000076	DS 	DispatchMessage__12BApplicationFP8BMessageP8BHandler
+000077	DS 	_ReservedLooper1__7BLooperFv
+000078	DS 	FindRef__8BMessageCFPCcP9entry_ref
+000079	DS 	_ReservedView1__5BViewFv
+00007A	DS 	_ReservedLooper4__7BLooperFv
+00007B	DS 	_ReservedLooper2__7BLooperFv
+00007C	DS 	Zoom__7BWindowF6BPointff
+00007D	DS 	_ReservedLooper5__7BLooperFv
+00007E	DS 	ConstrainClippingRegion__5BViewFP7BRegion
+00007F	DS 	_ReservedView8__5BViewFv
+000080	DS 	SetViewColor__5BViewF9rgb_color
+000081	DS 	ResolveSpecifier__12BApplicationFP8BMessagelP8BMessagelPCc
+000082	DS 	AllDetached__5BViewFv
+000083	DS 	_ReservedLooper6__7BLooperFv
+000084	DS 	_ReservedView5__5BViewFv
+000085	DS 	_ReservedView4__5BViewFv
+000086	DS 	_ReservedLooper3__7BLooperFv
+000087	DS 	_ReservedView6__5BViewFv
+000088	DS 	_ReservedView7__5BViewFv
+000089	DS 	Perform__12BApplicationFUlPv
+00008A	DS 	SetBits__7BBitmapFPCvll11color_space
+00008B	DS 	MouseMoved__5BViewF6BPointUlPC8BMessage
+00008C	DS 	FrameResized__5BViewFff
+00008D	DS 	_ReservedArchivable2__11BArchivableFv
+00008E	DS 	ScriptReceived__12BApplicationFP8BMessagelP8BMessagelPCc
+00008F	DS 	DrawBitmap__5BViewFPC7BBitmap5BRect5BRect
+000090	DS 	TargetedByScrollView__5BViewFP11BScrollView
+000091	DS 	__dt__12BApplicationFv
+000092	RW 	B_ORIGIN
+000093	DS 	SetNextHandler__8BHandlerFP8BHandler
+000094	DS 	RemoveFilter__8BHandlerFP14BMessageFilter
+000095	DS 	ConvertToMessage__7BWindowFPvl
+000096	DS 	Run__12BApplicationFv
+000097	DS 	GetSupportedSuites__5BViewFP8BMessage
+000098	DS 	__ct__7BWindowF5BRectPCc11window_typeUlUl
+000099	DS 	task_looper__7BLooperFv
+00009A	DS 	ArgvReceived__12BApplicationFlPPc
+00009B	RW 	be_plain_font
+00009C	DS 	MessageReceived__12BApplicationFP8BMessage
+00009D	DS 	WorkspaceActivated__7BWindowFlb
+00009E	DS 	FrameMoved__5BViewF6BPoint
+00009F	DS 	AboutRequested__12BApplicationFv
+0000A0	DS 	SetFilterList__8BHandlerFP5BList
+0000A1	DS 	AddFilter__8BHandlerFP14BMessageFilter
+0000A2	DS 	SetLowColor__5BViewF9rgb_color
+0000A3	DS 	AllAttached__5BViewFv

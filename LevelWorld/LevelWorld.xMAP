@@ -1,0 +1,388 @@
+File:    0	"/boot/beos/system/lib/libroot.so"
+File:    1	"/boot/beos/system/lib/libbe.so"
+File:    3	"/boot/rel/src/kit/runtime/global_destructor_chain.c"
+File:    4	"/boot/rel/src/kit/runtime/init_term.c"
+File:    5	"/boot/rel/src/kit/runtime/runtime.c"
+File:    8	"/boot/rel/src/kit/kernel/common/start_dyn.c"
+File:    9	"/boot/home/projs/LevelWorld/LevelView.cpp"
+File:   10	"/boot/home/projs/LevelWorld/LevelWindow.cpp"
+File:   11	"/boot/home/projs/LevelWorld/LevelWorld.cpp"
+
+Code section, size = 5516 bytes
+000000	PR 	.__sinit									file = "*Linker-Generated*"
+00001C	PR 	.__destroy_global_chain						file = "global_destructor_chain.c"
+000070	PR 	.__RTOC										file = "init_term.c"
+000078	PR 	._init_routine_
+0000C8	PR 	._term_routine_
+0000F8	PR 	.__start									file = "start_dyn.c"
+0001B8	PR 	.__ct__9HelloViewF5BRectPc					file = "LevelView.cpp"
+0003E8	PR 	.DrawAll__9HelloViewFv
+00045C	PR 	.const2point__9HelloViewFUc
+000708	PR 	.load256__9HelloViewFP6BEntryUlPUc
+0007D8	PR 	.savelev__9HelloViewFP6BEntry
+000890	PR 	.MouseDown__9HelloViewF6BPoint
+000AA0	PR 	.update__9HelloViewFii
+000B44	PR 	.MessageReceived__9HelloViewFP8BMessage
+000CA4	PR 	.Draw__9HelloViewF5BRect
+000D3C	PR 	.__dt__9HelloViewFv
+000DFC	PR 	.__ct__11HelloWindowF5BRect					file = "LevelWindow.cpp"
+000E7C	PR 	.QuitRequested__11HelloWindowFv
+000EB4	PR 	.__dt__11HelloWindowFv
+000F1C	PR 	.main										file = "LevelWorld.cpp"
+000FA8	PR 	.__dt__16HelloApplicationFv
+001010	PR 	.__ct__16HelloApplicationFv
+00117C	GL 	.__register_fragment						file = "*Linker-Generated*"
+001194	GL 	.find_thread
+0011AC	GL 	.memcpy
+0011C4	GL 	._call_init_routines_
+0011DC	GL 	.__nw__FUl
+0011F4	GL 	.__ct__12BApplicationFUl
+00120C	GL 	.__dt__12BApplicationFv
+001224	GL 	.__dl__FPv
+00123C	GL 	.__ct__7BWindowF5BRectPCc11window_typeUlUl
+001254	GL 	.__dt__7BWindowFv
+00126C	GL 	.PostMessage__7BLooperFUl
+001284	GL 	.OffsetTo__5BRectF6BPoint
+00129C	GL 	.__ct__5BViewF5BRectPCcUlUl
+0012B4	GL 	.__dt__5BViewFv
+0012CC	GL 	.__ct__9entry_refFv
+0012E4	GL 	.FindRef__8BMessageCFPCcP9entry_ref
+0012FC	GL 	.__ct__6BEntryFPC9entry_refb
+001314	GL 	.__ct__5BFileFPC6BEntryUl
+00132C	GL 	.InitCheck__5BNodeCFv
+001344	GL 	.__dt__9entry_refFv
+00135C	GL 	.MessageReceived__5BViewFP8BMessage
+001374	GL 	.DrawBitmap__5BViewFPC7BBitmap6BPoint
+00138C	GL 	.MovePenTo__5BViewFff
+0013A4	GL 	.DrawString__5BViewFPCcP16escapement_delta
+0013BC	GL 	.snooze
+0013D4	GL 	.GetMouse__5BViewFP6BPointPUlb
+0013EC	GL 	.__ct__7BBitmapF5BRect11color_spacebb
+001404	GL 	.Bits__7BBitmapCFv
+00141C	GL 	.__ct__6BEntryFPCcb
+001434	GL 	.AddChild__7BWindowFP5BViewP5BView
+00144C	GL 	._thread_do_exit_notification
+001464	GL 	.exit
+00147C	GL 	.__unregister_fragment
+001494	GL 	.__ptr_glue									file = "runtime.c"
+0014A8	TI 	@7											file = "global_destructor_chain.c"
+0014B4	TI 	@2											file = "init_term.c"
+0014C0	TI 	@4
+0014CC	TI 	@5											file = "start_dyn.c"
+0014D8	TI 	@283										file = "LevelView.cpp"
+0014E4	TI 	@295
+0014F0	TI 	@347
+0014FC	TI 	@355
+001508	TI 	@387
+001514	TI 	@399
+001520	TI 	@414
+00152C	TI 	@421
+001538	TI 	@428
+001544	TI 	@252										file = "LevelWindow.cpp"
+001550	TI 	@254
+00155C	TI 	@266
+001568	TI 	@259										file = "LevelWorld.cpp"
+001574	TI 	@262
+001580	TI 	@280
+
+Data section, size = 10884 bytes (TOC anchor = 000000)
+000000	TC 	exit										file = "*Linker-Generated*"
+000004	TC 	__dl__FPv
+000008	TC 	__register_fragment
+00000C	TC 	memcpy
+000010	TC 	_call_init_routines_
+000014	TC 	find_thread
+000018	TC 	__unregister_fragment
+00001C	TC 	__nw__FUl
+000020	TC 	_thread_do_exit_notification
+000024	TC 	snooze
+000028	TC 	__ct__7BBitmapF5BRect11color_spacebb
+00002C	TC 	__ct__5BViewF5BRectPCcUlUl
+000030	TC 	__ct__12BApplicationFUl
+000034	TC 	GetMouse__5BViewFP6BPointPUlb
+000038	TC 	__ct__5BFileFPC6BEntryUl
+00003C	TC 	MessageReceived__5BViewFP8BMessage
+000040	TC 	OffsetTo__5BRectF6BPoint
+000044	TC 	MovePenTo__5BViewFff
+000048	TC 	__ct__6BEntryFPC9entry_refb
+00004C	TC 	PostMessage__7BLooperFUl
+000050	TC 	AddChild__7BWindowFP5BViewP5BView
+000054	TC 	DrawString__5BViewFPCcP16escapement_delta
+000058	TC 	DrawBitmap__5BViewFPC7BBitmap6BPoint
+00005C	TC 	__dt__7BWindowFv
+000060	TC 	__ct__6BEntryFPCcb
+000064	TC 	InitCheck__5BNodeCFv
+000068	TC 	__ct__9entry_refFv
+00006C	TC 	__dt__9entry_refFv
+000070	TC 	__dt__5BViewFv
+000074	TC 	Bits__7BBitmapCFv
+000078	TC 	FindRef__8BMessageCFPCcP9entry_ref
+00007C	TC 	__dt__12BApplicationFv
+000080	TC 	__ct__7BWindowF5BRectPCc11window_typeUlUl
+000084	TC 	__global_destructor_chain
+000088	TC 	__exception_table_end__
+00008C	TC 	__exception_table_start__
+000090	TC 	__data_end__
+000094	TC 	__data_start__
+000098	TC 	__code_end__
+00009C	TC 	__code_start__
+0000A0	TC 	__main_thread_id
+0000A4	TC 	environ
+0000A8	TC 	argv_save
+0000AC	TC 	p
+0000B0	TC 	__vt__9HelloView
+0000B4	TC 	be_app
+0000B8	TC 	__vt__11HelloWindow
+0000BC	TC 	B_ORIGIN
+0000C0	TC 	__vt__16HelloApplication
+0000C4	TC 	magic_template								file = "start_dyn.c"
+0000C8	TC 	default_environ
+0000CC	TC 	@420										file = "LevelView.cpp"
+0000D0	TC 	@412
+0000D4	TC 	pieces
+0000D8	TC 	@281
+0000DC	TC 	@251										file = "LevelWindow.cpp"
+0000E0	TC 	@278										file = "LevelWorld.cpp"
+0000E4	TD 	fragmentID									file = "init_term.c"
+0000E8	TD 	@419										file = "LevelView.cpp"
+0000EC	TD 	@418
+0000F0	TD 	@384
+0000F4	TD 	@383
+0000F8	TD 	@382
+0000FC	TD 	@280
+000100	TD 	@279
+000104	TD 	@278
+000108	TD 	@277										file = "LevelWorld.cpp"
+00010C	TD 	@276
+000110	TD 	@275
+000114	TD 	@274
+000118	TD 	@273
+00011C	DS 	_term_routine_								file = "init_term.c"
+000124	DS 	_init_routine_
+00012C	DS 	__start										file = "start_dyn.c"
+000134	DS 	__dt__9HelloViewFv							file = "LevelView.cpp"
+00013C	DS 	Draw__9HelloViewF5BRect
+000144	DS 	MessageReceived__9HelloViewFP8BMessage
+00014C	DS 	MouseDown__9HelloViewF6BPoint
+000154	DS 	__dt__11HelloWindowFv						file = "LevelWindow.cpp"
+00015C	DS 	QuitRequested__11HelloWindowFv
+000164	DS 	__dt__16HelloApplicationFv					file = "LevelWorld.cpp"
+00016C	TB 	@282										file = "LevelView.cpp"
+0001D6	TB 	@346
+0001E8	TB 	@354
+0001FA	TB 	@413
+000220	TB 	@258										file = "LevelWorld.cpp"
+000232	TB 	@279
+00027C	RW 	magic_template								file = "start_dyn.c"
+000284	RW 	@1
+000294	RW 	default_environ
+00029C	RW 	pieces										file = "LevelView.cpp"
+00259C	RW 	p
+0025CC	RW 	@281
+0025D4	RW 	@412
+0025D9	RW 	@420
+0025DE	RW 	@429
+0025E8	RW 	@431
+0025F4	RW 	__RTTI__11BArchivable
+0025FC	RW 	@432
+002608	RW 	@433
+002614	RW 	__RTTI__8BHandler
+00261C	RW 	@434
+002624	RW 	@435
+002638	RW 	__RTTI__5BView
+002640	RW 	@430
+00265C	RW 	__RTTI__9HelloView
+002664	RW 	__vt__9HelloView
+002748	RW 	@251										file = "LevelWindow.cpp"
+002753	RW 	@255
+00275F	RW 	@257
+00276C	RW 	__RTTI__11BArchivable
+002774	RW 	@258
+002780	RW 	@259
+00278C	RW 	__RTTI__8BHandler
+002794	RW 	@260
+00279C	RW 	@261
+0027B0	RW 	__RTTI__7BLooper
+0027B8	RW 	@262
+0027C0	RW 	@263
+0027DC	RW 	__RTTI__7BWindow
+0027E4	RW 	@256
+002808	RW 	__RTTI__11HelloWindow
+002810	RW 	__vt__11HelloWindow
+0028E8	RW 	@278										file = "LevelWorld.cpp"
+0028ED	RW 	@281
+0028FE	RW 	@283
+00290C	RW 	__RTTI__11BArchivable
+002914	RW 	@284
+002920	RW 	@285
+00292C	RW 	__RTTI__8BHandler
+002934	RW 	@286
+00293C	RW 	@287
+002950	RW 	__RTTI__7BLooper
+002958	RW 	@288
+002968	RW 	@289
+002984	RW 	__RTTI__12BApplication
+00298C	RW 	@282
+0029B0	RW 	__RTTI__16HelloApplication
+0029B8	RW 	__vt__16HelloApplication
+002A7C	RW 	__global_destructor_chain					file = "global_destructor_chain.c"
+
+Import container "libroot.so"
+Current Version = 00000000, Old Implementation = 00000000
+000000	RW 	environ
+000001	DS 	exit
+000002	DS 	__dl__FPv
+000003	DS 	__register_fragment
+000004	DS 	memcpy
+000005	DS 	_call_init_routines_
+000006	RW 	argv_save
+000007	DS 	find_thread
+000008	DS 	__unregister_fragment
+000009	RW 	__main_thread_id
+00000A	DS 	__nw__FUl
+00000B	DS 	_thread_do_exit_notification
+00000C	DS 	snooze
+
+Import container "libbe.so"
+Current Version = 00000000, Old Implementation = 00000000
+00000D	DS 	SetHighColor__5BViewF9rgb_color
+00000E	DS 	SetResizingMode__5BViewFUl
+00000F	DS 	SetFont__5BViewFPC5BFontUl
+000010	DS 	RefsReceived__12BApplicationFP8BMessage
+000011	DS 	AttachedToWindow__5BViewFv
+000012	DS 	AppActivated__12BApplicationFb
+000013	DS 	__ct__7BBitmapF5BRect11color_spacebb
+000014	DS 	__ct__5BViewF5BRectPCcUlUl
+000015	DS 	ResolveSpecifier__5BViewFP8BMessagelP8BMessagelPCc
+000016	RW 	be_app
+000017	DS 	Archive__12BApplicationCFP8BMessageb
+000018	DS 	Perform__7BWindowFUlPv
+000019	DS 	RemoveCommonFilter__7BLooperFP14BMessageFilter
+00001A	DS 	MenusEnded__7BWindowFv
+00001B	DS 	_ReservedWindow5__7BWindowFv
+00001C	DS 	__ct__12BApplicationFUl
+00001D	DS 	_ReservedHandler4__8BHandlerFv
+00001E	DS 	_ReservedWindow4__7BWindowFv
+00001F	DS 	_ReservedHandler1__8BHandlerFv
+000020	DS 	_ReservedWindow3__7BWindowFv
+000021	DS 	QuitRequested__12BApplicationFv
+000022	DS 	_ReservedWindow8__7BWindowFv
+000023	DS 	_ReservedWindow2__7BWindowFv
+000024	DS 	_ReservedWindow7__7BWindowFv
+000025	DS 	_ReservedWindow1__7BWindowFv
+000026	DS 	Perform__5BViewFUlPv
+000027	DS 	_ReservedWindow6__7BWindowFv
+000028	DS 	_ReservedHandler3__8BHandlerFv
+000029	DS 	WindowActivated__7BWindowFb
+00002A	DS 	WorkspacesChanged__7BWindowFUlUl
+00002B	DS 	_ReservedArchivable1__11BArchivableFv
+00002C	DS 	Archive__5BViewCFP8BMessageb
+00002D	DS 	task_looper__7BWindowFv
+00002E	DS 	_ReservedHandler2__8BHandlerFv
+00002F	DS 	GetSupportedSuites__7BWindowFP8BMessage
+000030	DS 	MessageReceived__7BWindowFP8BMessage
+000031	DS 	DispatchMessage__7BWindowFP8BMessageP8BHandler
+000032	DS 	GetMouse__5BViewFP6BPointPUlb
+000033	DS 	__ct__5BFileFPC6BEntryUl
+000034	DS 	SetPenSize__5BViewFf
+000035	DS 	_ReservedApplication8__12BApplicationFv
+000036	DS 	GetSupportedSuites__12BApplicationFP8BMessage
+000037	DS 	_ReservedApplication7__12BApplicationFv
+000038	DS 	_ReservedArchivable3__11BArchivableFv
+000039	DS 	MessageReceived__5BViewFP8BMessage
+00003A	DS 	MenusBeginning__7BWindowFv
+00003B	DS 	GetPreferredSize__5BViewFPfPf
+00003C	DS 	DetachedFromWindow__5BViewFv
+00003D	DS 	WindowActivated__5BViewFb
+00003E	DS 	ReadyToRun__12BApplicationFv
+00003F	DS 	_ReservedApplication1__12BApplicationFv
+000040	DS 	OffsetTo__5BRectF6BPoint
+000041	DS 	ScreenChanged__7BWindowF5BRect11color_space
+000042	DS 	ResolveSpecifier__7BWindowFP8BMessagelP8BMessagelPCc
+000043	DS 	MovePenTo__5BViewFff
+000044	DS 	__ct__6BEntryFPC9entry_refb
+000045	DS 	PostMessage__7BLooperFUl
+000046	DS 	ResizeToPreferred__5BViewFv
+000047	DS 	FrameResized__7BWindowFff
+000048	DS 	MakeFocus__5BViewFb
+000049	DS 	AddChild__7BWindowFP5BViewP5BView
+00004A	DS 	AddCommonFilter__7BLooperFP14BMessageFilter
+00004B	DS 	Minimize__7BWindowFb
+00004C	DS 	DrawString__5BViewFPCcP16escapement_delta
+00004D	DS 	KeyDown__5BViewFPCcl
+00004E	DS 	ScrollTo__5BViewF6BPoint
+00004F	DS 	SetCommonFilterList__7BLooperFP5BList
+000050	DS 	DrawBitmap__5BViewFPC7BBitmap6BPoint
+000051	DS 	Archive__7BWindowCFP8BMessageb
+000052	DS 	_ReservedApplication4__12BApplicationFv
+000053	DS 	__dt__7BWindowFv
+000054	DS 	Hide__7BWindowFv
+000055	DS 	Pulse__12BApplicationFv
+000056	DS 	_ReservedApplication6__12BApplicationFv
+000057	DS 	Quit__7BWindowFv
+000058	DS 	Show__7BWindowFv
+000059	DS 	MouseUp__5BViewF6BPoint
+00005A	DS 	_ReservedApplication2__12BApplicationFv
+00005B	DS 	__ct__6BEntryFPCcb
+00005C	DS 	Pulse__5BViewFv
+00005D	DS 	_ReservedApplication5__12BApplicationFv
+00005E	DS 	_ReservedApplication3__12BApplicationFv
+00005F	DS 	InitCheck__5BNodeCFv
+000060	DS 	Quit__12BApplicationFv
+000061	DS 	__ct__9entry_refFv
+000062	DS 	FrameMoved__7BWindowF6BPoint
+000063	DS 	KeyUp__5BViewFPCcl
+000064	DS 	__dt__9entry_refFv
+000065	DS 	ConvertToMessage__7BLooperFPvl
+000066	DS 	__dt__5BViewFv
+000067	DS 	Bits__7BBitmapCFv
+000068	DS 	Hide__5BViewFv
+000069	DS 	SetFlags__5BViewFUl
+00006A	DS 	Show__5BViewFv
+00006B	DS 	Run__7BLooperFv
+00006C	DS 	SetDrawingMode__5BViewF12drawing_mode
+00006D	DS 	_ReservedView2__5BViewFv
+00006E	DS 	_ReservedView3__5BViewFv
+00006F	DS 	DispatchMessage__12BApplicationFP8BMessageP8BHandler
+000070	DS 	_ReservedLooper1__7BLooperFv
+000071	DS 	FindRef__8BMessageCFPCcP9entry_ref
+000072	DS 	_ReservedView1__5BViewFv
+000073	DS 	_ReservedLooper4__7BLooperFv
+000074	DS 	_ReservedLooper2__7BLooperFv
+000075	DS 	Zoom__7BWindowF6BPointff
+000076	DS 	_ReservedLooper5__7BLooperFv
+000077	DS 	ConstrainClippingRegion__5BViewFP7BRegion
+000078	DS 	_ReservedView8__5BViewFv
+000079	DS 	SetViewColor__5BViewF9rgb_color
+00007A	DS 	ResolveSpecifier__12BApplicationFP8BMessagelP8BMessagelPCc
+00007B	DS 	AllDetached__5BViewFv
+00007C	DS 	_ReservedLooper6__7BLooperFv
+00007D	DS 	_ReservedView5__5BViewFv
+00007E	DS 	_ReservedView4__5BViewFv
+00007F	DS 	_ReservedLooper3__7BLooperFv
+000080	DS 	_ReservedView6__5BViewFv
+000081	DS 	_ReservedView7__5BViewFv
+000082	DS 	Perform__12BApplicationFUlPv
+000083	DS 	MouseMoved__5BViewF6BPointUlPC8BMessage
+000084	DS 	FrameResized__5BViewFff
+000085	DS 	_ReservedArchivable2__11BArchivableFv
+000086	DS 	ScriptReceived__12BApplicationFP8BMessagelP8BMessagelPCc
+000087	DS 	TargetedByScrollView__5BViewFP11BScrollView
+000088	DS 	__dt__12BApplicationFv
+000089	RW 	B_ORIGIN
+00008A	DS 	SetNextHandler__8BHandlerFP8BHandler
+00008B	DS 	RemoveFilter__8BHandlerFP14BMessageFilter
+00008C	DS 	ConvertToMessage__7BWindowFPvl
+00008D	DS 	Run__12BApplicationFv
+00008E	DS 	GetSupportedSuites__5BViewFP8BMessage
+00008F	DS 	__ct__7BWindowF5BRectPCc11window_typeUlUl
+000090	DS 	task_looper__7BLooperFv
+000091	DS 	ArgvReceived__12BApplicationFlPPc
+000092	DS 	MessageReceived__12BApplicationFP8BMessage
+000093	DS 	WorkspaceActivated__7BWindowFlb
+000094	DS 	FrameMoved__5BViewF6BPoint
+000095	DS 	AboutRequested__12BApplicationFv
+000096	DS 	SetFilterList__8BHandlerFP5BList
+000097	DS 	AddFilter__8BHandlerFP14BMessageFilter
+000098	DS 	SetLowColor__5BViewF9rgb_color
+000099	DS 	AllAttached__5BViewFv

@@ -1,0 +1,308 @@
+File:    0	"libroot.so"
+File:    1	"libgame.so"
+File:    2	"libbe.so"
+File:    4	"/boot/rel/src/kit/runtime/global_destructor_chain.c"
+File:    5	"/boot/rel/src/kit/runtime/init_term.c"
+File:    6	"/boot/rel/src/kit/runtime/runtime.c"
+File:    9	"/boot/rel/src/kit/kernel/common/start_dyn.c"
+File:   10	"/boot/home/projs/ScreenTest/screentest.cpp"
+File:   11	"/boot/home/projs/ScreenTest/screenwin.cpp"
+
+Code section, size = 3092 bytes
+000000	PR 	.__sinit									file = "*Linker-Generated*"
+00001C	PR 	.__destroy_global_chain						file = "global_destructor_chain.c"
+000070	PR 	.__RTOC										file = "init_term.c"
+000078	PR 	._init_routine_
+0000C8	PR 	._term_routine_
+0000F8	PR 	.__start									file = "start_dyn.c"
+0001B8	PR 	.__ct__9screenappFv							file = "screentest.cpp"
+0002A4	PR 	.main
+000338	PR 	.__dt__9screenappFv
+0003A0	PR 	.__ct__9screenwinFPCcUlPlb					file = "screenwin.cpp"
+000630	PR 	.ScreenConnected__9screenwinFb
+0006B0	PR 	.plasma__FPv
+000904	PR 	.__dt__9screenwinFv
+00096C	GL 	.__register_fragment						file = "*Linker-Generated*"
+000984	GL 	.find_thread
+00099C	GL 	.memcpy
+0009B4	GL 	._call_init_routines_
+0009CC	GL 	.printf
+0009E4	GL 	.__nw__FUl
+0009FC	GL 	.__ct__12BApplicationFPCc
+000A14	GL 	.__dt__12BApplicationFv
+000A2C	GL 	.__dl__FPv
+000A44	GL 	.__ct__13BWindowScreenFPCcUlPlb
+000A5C	GL 	.__dt__13BWindowScreenFv
+000A74	GL 	.cos
+000A8C	GL 	.sin
+000AA4	GL 	.spawn_thread
+000ABC	GL 	.resume_thread
+000AD4	GL 	.CardInfo__13BWindowScreenFv
+000AEC	GL 	.CanControlFrameBuffer__13BWindowScreenFv
+000B04	GL 	.SetColorList__13BWindowScreenFP9rgb_colorll
+000B1C	GL 	.PostMessage__7BLooperFUl
+000B34	GL 	._thread_do_exit_notification
+000B4C	GL 	.exit
+000B64	GL 	.__unregister_fragment
+000B7C	GL 	.__ptr_glue									file = "runtime.c"
+000B90	TI 	@7											file = "global_destructor_chain.c"
+000B9C	TI 	@2											file = "init_term.c"
+000BA8	TI 	@4
+000BB4	TI 	@5											file = "start_dyn.c"
+000BC0	TI 	@264										file = "screentest.cpp"
+000BCC	TI 	@271
+000BD8	TI 	@274
+000BE4	TI 	@284										file = "screenwin.cpp"
+000BF0	TI 	@290
+000BFC	TI 	@342
+000C08	TI 	@356
+
+Data section, size = 2624 bytes (TOC anchor = 000000)
+000000	TC 	printf										file = "*Linker-Generated*"
+000004	TC 	exit
+000008	TC 	__dl__FPv
+00000C	TC 	__register_fragment
+000010	TC 	memcpy
+000014	TC 	cos
+000018	TC 	resume_thread
+00001C	TC 	_call_init_routines_
+000020	TC 	find_thread
+000024	TC 	sin
+000028	TC 	spawn_thread
+00002C	TC 	__unregister_fragment
+000030	TC 	__nw__FUl
+000034	TC 	_thread_do_exit_notification
+000038	TC 	CardInfo__13BWindowScreenFv
+00003C	TC 	SetColorList__13BWindowScreenFP9rgb_colorll
+000040	TC 	CanControlFrameBuffer__13BWindowScreenFv
+000044	TC 	__ct__13BWindowScreenFPCcUlPlb
+000048	TC 	__dt__13BWindowScreenFv
+00004C	TC 	__ct__12BApplicationFPCc
+000050	TC 	PostMessage__7BLooperFUl
+000054	TC 	__dt__12BApplicationFv
+000058	TC 	__global_destructor_chain
+00005C	TC 	__exception_table_end__
+000060	TC 	__exception_table_start__
+000064	TC 	__data_end__
+000068	TC 	__data_start__
+00006C	TC 	__code_end__
+000070	TC 	__code_start__
+000074	TC 	__main_thread_id
+000078	TC 	environ
+00007C	TC 	argv_save
+000080	TC 	be_app
+000084	TC 	__vt__9screenapp
+000088	TC 	plasma__FPv
+00008C	TC 	thread_run
+000090	TC 	Sin
+000094	TC 	Cos
+000098	TC 	__vt__9screenwin
+00009C	TC 	magic_template								file = "start_dyn.c"
+0000A0	TC 	default_environ
+0000A4	TC 	@269										file = "screentest.cpp"
+0000A8	TC 	@262
+0000AC	TC 	@261
+0000B0	TC 	@260
+0000B4	TC 	@259
+0000B8	TC 	@258
+0000BC	TC 	@332										file = "screenwin.cpp"
+0000C0	TC 	@289
+0000C4	TC 	@267
+0000C8	TC 	@266
+0000CC	TC 	@265
+0000D0	TC 	@264
+0000D4	TC 	@263
+0000D8	TD 	fragmentID									file = "init_term.c"
+0000DC	TD 	@336										file = "screenwin.cpp"
+0000E0	TD 	@335
+0000E8	TD 	@334
+0000F0	TD 	@333
+0000F8	TD 	@277
+000100	TD 	@275
+000108	TD 	@274
+000110	TD 	@273
+000118	TD 	@272
+000120	TD 	@271
+000128	TD 	@270
+000130	TD 	@269
+000138	TD 	@268
+000140	DS 	_term_routine_								file = "init_term.c"
+000148	DS 	_init_routine_
+000150	DS 	__start										file = "start_dyn.c"
+000158	DS 	__dt__9screenappFv							file = "screentest.cpp"
+000160	DS 	__dt__9screenwinFv							file = "screenwin.cpp"
+000168	DS 	ScreenConnected__9screenwinFb
+000170	DS 	plasma__FPv
+000178	TB 	@263										file = "screentest.cpp"
+0001A2	TB 	@270
+0001B4	TB 	@283										file = "screenwin.cpp"
+0001CC	RW 	magic_template								file = "start_dyn.c"
+0001D4	RW 	@1
+0001E4	RW 	default_environ
+0001EC	RW 	@258										file = "screentest.cpp"
+000209	RW 	@259
+00021F	RW 	@260
+000226	RW 	@261
+000231	RW 	@262
+000241	RW 	@269
+000254	RW 	@275
+00025E	RW 	@277
+00026C	RW 	__RTTI__11BArchivable
+000274	RW 	@278
+000280	RW 	@279
+00028C	RW 	__RTTI__8BHandler
+000294	RW 	@280
+00029C	RW 	@281
+0002B0	RW 	__RTTI__7BLooper
+0002B8	RW 	@282
+0002C8	RW 	@283
+0002E4	RW 	__RTTI__12BApplication
+0002EC	RW 	@276
+000310	RW 	__RTTI__9screenapp
+000318	RW 	__vt__9screenapp
+0003DC	RW 	@263										file = "screenwin.cpp"
+0003EE	RW 	@264
+000409	RW 	@265
+00040F	RW 	@266
+000416	RW 	@267
+00041D	RW 	@289
+000429	RW 	@332
+00043F	RW 	@343
+000449	RW 	@345
+000458	RW 	__RTTI__11BArchivable
+000460	RW 	@346
+00046C	RW 	@347
+000478	RW 	__RTTI__8BHandler
+000480	RW 	@348
+000488	RW 	@349
+00049C	RW 	__RTTI__7BLooper
+0004A4	RW 	@350
+0004AC	RW 	@351
+0004C8	RW 	__RTTI__7BWindow
+0004D0	RW 	@352
+0004E0	RW 	@353
+000504	RW 	__RTTI__13BWindowScreen
+00050C	RW 	@344
+000538	RW 	__RTTI__9screenwin
+000540	RW 	__vt__9screenwin
+000630	RW 	__global_destructor_chain					file = "global_destructor_chain.c"
+000634	RW 	thread_run									file = "screentest.cpp"
+000638	RW 	Sin
+00063C	RW 	Cos
+
+Import container "libroot.so"
+Current Version = 00000000, Old Implementation = 00000000
+000000	RW 	environ
+000001	DS 	printf
+000002	DS 	exit
+000003	DS 	__dl__FPv
+000004	DS 	__register_fragment
+000005	DS 	memcpy
+000006	DS 	cos
+000007	DS 	resume_thread
+000008	DS 	_call_init_routines_
+000009	RW 	argv_save
+00000A	DS 	find_thread
+00000B	DS 	sin
+00000C	DS 	spawn_thread
+00000D	DS 	__unregister_fragment
+00000E	RW 	__main_thread_id
+00000F	DS 	__nw__FUl
+000010	DS 	_thread_do_exit_notification
+
+Import container "libgame.so"
+Current Version = 00000000, Old Implementation = 00000000
+000011	DS 	CardInfo__13BWindowScreenFv
+000012	DS 	Hide__13BWindowScreenFv
+000013	DS 	Perform__13BWindowScreenFUlPv
+000014	DS 	_ReservedWindowScreen3__13BWindowScreenFv
+000015	DS 	SuspensionHook__13BWindowScreenFb
+000016	DS 	_ReservedWindowScreen1__13BWindowScreenFv
+000017	DS 	_ReservedWindowScreen2__13BWindowScreenFv
+000018	DS 	WindowActivated__13BWindowScreenFb
+000019	DS 	_ReservedWindowScreen4__13BWindowScreenFv
+00001A	DS 	SetColorList__13BWindowScreenFP9rgb_colorll
+00001B	DS 	CanControlFrameBuffer__13BWindowScreenFv
+00001C	DS 	__ct__13BWindowScreenFPCcUlPlb
+00001D	DS 	Show__13BWindowScreenFv
+00001E	DS 	__dt__13BWindowScreenFv
+00001F	DS 	Quit__13BWindowScreenFv
+000020	DS 	WorkspaceActivated__13BWindowScreenFlb
+000021	DS 	ScreenChanged__13BWindowScreenF5BRect11color_space
+
+Import container "libbe.so"
+Current Version = 00000000, Old Implementation = 00000000
+000022	DS 	RefsReceived__12BApplicationFP8BMessage
+000023	DS 	AppActivated__12BApplicationFb
+000024	RW 	be_app
+000025	DS 	Archive__12BApplicationCFP8BMessageb
+000026	DS 	RemoveCommonFilter__7BLooperFP14BMessageFilter
+000027	DS 	MenusEnded__7BWindowFv
+000028	DS 	__ct__12BApplicationFPCc
+000029	DS 	_ReservedWindow5__7BWindowFv
+00002A	DS 	_ReservedHandler4__8BHandlerFv
+00002B	DS 	_ReservedWindow4__7BWindowFv
+00002C	DS 	_ReservedHandler1__8BHandlerFv
+00002D	DS 	_ReservedWindow3__7BWindowFv
+00002E	DS 	QuitRequested__12BApplicationFv
+00002F	DS 	_ReservedWindow8__7BWindowFv
+000030	DS 	_ReservedWindow2__7BWindowFv
+000031	DS 	_ReservedWindow7__7BWindowFv
+000032	DS 	_ReservedWindow1__7BWindowFv
+000033	DS 	_ReservedWindow6__7BWindowFv
+000034	DS 	_ReservedHandler3__8BHandlerFv
+000035	DS 	WorkspacesChanged__7BWindowFUlUl
+000036	DS 	_ReservedArchivable1__11BArchivableFv
+000037	DS 	task_looper__7BWindowFv
+000038	DS 	_ReservedHandler2__8BHandlerFv
+000039	DS 	GetSupportedSuites__7BWindowFP8BMessage
+00003A	DS 	MessageReceived__7BWindowFP8BMessage
+00003B	DS 	DispatchMessage__7BWindowFP8BMessageP8BHandler
+00003C	DS 	_ReservedApplication8__12BApplicationFv
+00003D	DS 	GetSupportedSuites__12BApplicationFP8BMessage
+00003E	DS 	_ReservedApplication7__12BApplicationFv
+00003F	DS 	_ReservedArchivable3__11BArchivableFv
+000040	DS 	MenusBeginning__7BWindowFv
+000041	DS 	ReadyToRun__12BApplicationFv
+000042	DS 	_ReservedApplication1__12BApplicationFv
+000043	DS 	ResolveSpecifier__7BWindowFP8BMessagelP8BMessagelPCc
+000044	DS 	PostMessage__7BLooperFUl
+000045	DS 	FrameResized__7BWindowFff
+000046	DS 	AddCommonFilter__7BLooperFP14BMessageFilter
+000047	DS 	Minimize__7BWindowFb
+000048	DS 	SetCommonFilterList__7BLooperFP5BList
+000049	DS 	Archive__7BWindowCFP8BMessageb
+00004A	DS 	_ReservedApplication4__12BApplicationFv
+00004B	DS 	Pulse__12BApplicationFv
+00004C	DS 	_ReservedApplication6__12BApplicationFv
+00004D	DS 	_ReservedApplication2__12BApplicationFv
+00004E	DS 	_ReservedApplication5__12BApplicationFv
+00004F	DS 	_ReservedApplication3__12BApplicationFv
+000050	DS 	Quit__12BApplicationFv
+000051	DS 	FrameMoved__7BWindowF6BPoint
+000052	DS 	ConvertToMessage__7BLooperFPvl
+000053	DS 	Run__7BLooperFv
+000054	DS 	DispatchMessage__12BApplicationFP8BMessageP8BHandler
+000055	DS 	_ReservedLooper1__7BLooperFv
+000056	DS 	_ReservedLooper4__7BLooperFv
+000057	DS 	QuitRequested__7BLooperFv
+000058	DS 	_ReservedLooper2__7BLooperFv
+000059	DS 	Zoom__7BWindowF6BPointff
+00005A	DS 	_ReservedLooper5__7BLooperFv
+00005B	DS 	ResolveSpecifier__12BApplicationFP8BMessagelP8BMessagelPCc
+00005C	DS 	_ReservedLooper6__7BLooperFv
+00005D	DS 	_ReservedLooper3__7BLooperFv
+00005E	DS 	Perform__12BApplicationFUlPv
+00005F	DS 	_ReservedArchivable2__11BArchivableFv
+000060	DS 	ScriptReceived__12BApplicationFP8BMessagelP8BMessagelPCc
+000061	DS 	__dt__12BApplicationFv
+000062	DS 	SetNextHandler__8BHandlerFP8BHandler
+000063	DS 	RemoveFilter__8BHandlerFP14BMessageFilter
+000064	DS 	ConvertToMessage__7BWindowFPvl
+000065	DS 	Run__12BApplicationFv
+000066	DS 	task_looper__7BLooperFv
+000067	DS 	ArgvReceived__12BApplicationFlPPc
+000068	DS 	MessageReceived__12BApplicationFP8BMessage
+000069	DS 	AboutRequested__12BApplicationFv
+00006A	DS 	SetFilterList__8BHandlerFP5BList
+00006B	DS 	AddFilter__8BHandlerFP14BMessageFilter
