@@ -1,6 +1,10 @@
 #ifndef HELLO_TITLE_H
 #define HELLO_TITLE_H
 
+#include <Bitmap.h>
+#include <InterfaceKit.h>
+#include <Rect.h>
+
 class DmTitleView: public BView
 {
 private:
@@ -9,13 +13,16 @@ private:
 	int totalmoves;
 	uint8 record;
 	
-	char	*stones;
-	char	*moves;
-	char	*rec;
-public:
-	DmTitleView(BRect frame, char *name,BBitmap *bitmappoint,uint16 totalmovespoint,uint16 stonesleftpoint, uint8 recordpoint);  
+	uint8	size;
 
-virtual void Draw(BRect rect);
+	char	stones[12];
+	char	moves[12];
+	char	rec[12];
+public:
+	DmTitleView(BRect frame, uint16 totalmovespoint,uint16 stonesleftpoint, uint8 recordpoint);  
+
+	void MouseDown(BPoint cursor);
+	void Draw(BRect rect);
 };
 
 #endif

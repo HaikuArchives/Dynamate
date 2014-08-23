@@ -1,42 +1,35 @@
-/*
-	
-	HelloWorld.cpp
-	
-	Copyright 1995 Be Incorporated, All Rights Reserved.
-	
-*/
+#include "DmWindow.h"
+#include "DmWorld.h"
 
-#ifndef HELLO_WINDOW_H
-#include "headers/DmWindow.h"
-#endif
-
-#ifndef HELLO_WORLD_H
-#include "headers/DmWorld.h"
-#endif
+#include <stdio.h>
 
 main()
 {	
 	HelloApplication *myApplication;
 
 	myApplication = new HelloApplication();
-	myApplication->Run();
-	
+	if (myApplication->InitCheck()==B_OK){
+		myApplication->Run();
+	}
 	delete(myApplication);
 	return(0);
 }
 
+status_t HelloApplication::InitCheck()
+{
+	return error;
+}
+
 HelloApplication::HelloApplication()
-		  		  : BApplication("application/x-vnd.Jonas-DnMt")
+		  		  : BApplication("application/x-vnd.Jonas-DynaMate")
 {
 	BRect			aRect;
 
 	// set up a rectangle and instantiate a new window
-	aRect.Set(50,50,50+(16*SIZE-1),50+(16*SIZE-1));
+	aRect.Set(50,50,50+(16*16-1),50+(16*16-1));
 	aWindow = new HelloWindow(aRect);
 
-
-	// make window visible
-	aWindow->Show();
+	if (B_OK == (error = aWindow->InitCheck()))	aWindow->Show();
 }
 
 void HelloApplication::RefsReceived(BMessage *message) 

@@ -1,7 +1,24 @@
 #ifndef GLOB
 #define GLOB
 
-// ok, det är fegt med globala variabler.
-uint8 SIZE= 16;
+/// /// /// /// SOUND /// /// /// ///
+#include <MediaDefs.h>
+#include <Sound.h>
+#include <SoundPlayer.h>
+
+struct SoundStuff {
+	BSoundPlayer sp;
+	BSound *moveblip,*stopblip,*explblip;
+};
+
+enum {	dmSTOPPED,
+		dmOK,
+		dmSEARCHING,
+		dmEXPL,
+		dmDEATH
+		};
+
+const uint32 LEVELCOMPLETE 	=	'lvcp';
+const uint32 LEVELABANDONED	=	'lvab';
 
 #endif

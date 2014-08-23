@@ -1,33 +1,26 @@
-/*
-	
-	HelloView.cpp
-	
-	Copyright 1995 Be Incorporated, All Rights Reserved.
-	
-*/
+#include "DmView.h"
+#include "DmWindow.h"
+#include <InterfaceKit.h>
+#include "pieces16.h"
+#include "pieces24.h"
+#include "lighter.h"
 
-//#include <Directory.h>
-
-
-#ifndef HELLO_VIEW_H
-#include "headers/DmView.h"
-#endif
-#ifndef HELLO_WINDOW_H
-#include "headers/DmWindow.h"
-#endif
-
-
-
-HelloView::HelloView(BRect rect, char *name, uint8 *levelpoint, HelloWindow *windowpoint)
+HelloView::HelloView(BRect rect, char *name, uint8 *levelpoint, HelloWindow *windowpoint,int total,SoundStuff *_snd)
 	   	   :BView(rect, name, B_FOLLOW_ALL, B_WILL_DRAW)
 {
-	
+	SetViewColor(B_TRANSPARENT_COLOR);
+
+	snd = _snd;
+	snd->sp.Start();
+	snd->sp.SetVolume(1.0); 
+
 // Allokera minne
-	bitmap=new BBitmap(BRect(0,0,(16*SIZE-1),(16*SIZE-1)),B_COLOR_8_BIT);
+	size=(uint8)((rect.right - rect.left + 1) /16);
+	bitmap=new BBitmap(BRect(0,0,(16*size-1),(16*size-1)), B_COLOR_8_BIT);
 	buffer=(uint8 *)bitmap->Bits();
 
 // Nollställ
-	totalmoves=0;
+	totalmoves=total;
 	stonesleft=0;
 	gluesleft=0;
 	
@@ -56,6 +49,7 @@ HelloView::HelloView(BRect rect, char *name, uint8 *levelpoint, HelloWindow *win
 			update(x,y);
 		}
 	}
+	
 }
 
 uint8 *HelloView::const2point(uint8 piece)
@@ -212,6 +206,9 @@ void HelloView::get_next(pstruct *piece)
 		
 void HelloView::go(pstruct piece) 
 {
+/// HERE IS MOVE SND
+	snd->sp.StartPlaying(snd->moveblip);
+
 	totalmoves++;
 	//printf("%x%x%x\n",piece.x,piece.y,(piece.dirx+1)+((piece.diry+1)<<2));
 		
@@ -221,11 +218,21 @@ void HelloView::go(pstruct piece)
 	pstruct old;
 	while (piece.state!=dmSTOPPED && piece.state!=dmEXPL)
 	{
+
 		old=piece;
 		do{
 			piece.state=dmSEARCHING;
 			get_next(&piece);
 		}while (piece.state==dmSEARCHING);
+
+/// HERE IS STOP SND
+		if (dmSTOPPED==piece.state) snd->sp.StartPlaying(snd->stopblip);
+
+
+		if (origin.x==piece.x &&
+			origin.y==piece.y &&
+			origin.dirx==piece.dirx &&
+			origin.diry==piece.diry) piece.state=dmDEATH;
 
 		switch (piece.state)
 		{
@@ -242,7 +249,14 @@ void HelloView::go(pstruct piece)
 							piece.state=dmSTOPPED;
 							break;
 
-			case dmEXPL	:	explode(old.x,old.y,true);
+			case dmEXPL	:	
+							lighten(old.x,old.y);
+							lighten(piece.x,piece.y);
+/// HERE IS EXPL SND
+							snd->sp.StartPlaying(snd->explblip);
+							snooze(50000);
+
+							explode(old.x,old.y,true);
 							explode(piece.x, piece.y,true);
 
 							while (piece.state==dmEXPL)
@@ -255,6 +269,10 @@ void HelloView::go(pstruct piece)
 						
 							if 	(piece.state==dmEXPL)
 								{
+								lighten(piece.x,piece.y);
+/// HERE IS EXPL SND
+								snd->sp.StartPlaying(snd->explblip);
+								snooze(50000);
 								explode(piece.x,piece.y,true);
 								}
 							}
@@ -265,7 +283,7 @@ void HelloView::go(pstruct piece)
 								}
 							break;
 		}
-	}	
+	}
 }
 
 void HelloView::explode(int x, int y, bool stone)
@@ -273,7 +291,7 @@ void HelloView::explode(int x, int y, bool stone)
 	level[y*16+x]=S_EMPTY;
 	if (stone) stonesleft--;
 	update(x,y);
-	Draw(BRect(x*SIZE,y*SIZE,(x+1)*SIZE-1,(y+1)*SIZE-1));
+	Draw(BRect(x*size,y*size,(x+1)*size-1,(y+1)*size-1));
 }		
 
 void HelloView::update(int x,int y)
@@ -284,11 +302,11 @@ void HelloView::update(int x,int y)
 	
 	gfx=const2point(level[y*16+x]);
 	
-	for (y1=0;y1<SIZE;y1++)
+	for (y1=0;y1<size;y1++)
 	{
-		for (x1=0;x1<SIZE;x1++)
+		for (x1=0;x1<size;x1++)
 		{
-			buffer[y*16*(SIZE*SIZE)+x*SIZE+y1*(16*SIZE)+x1]=gfx[y1*SIZE+x1];
+			buffer[y*16*(size*size)+x*size+y1*(16*size)+x1]=gfx[y1*size+x1];
 		}
 	}
 
@@ -300,10 +318,21 @@ void HelloView::move(int x,int y,int x1,int y1)
 	level[y*16+x]=S_EMPTY;
 	update(x,y);
 	update(x1,y1);
-	snooze(30 * 1000);
-	Draw(BRect(x*SIZE,y*SIZE,(x+1)*SIZE-1,(y+1)*SIZE-1) | BRect(x1*SIZE,y1*SIZE,(x1+1)*SIZE-1,(y1+1)*SIZE-1));
+	snooze(10*1000);
+	Draw(BRect(x*size,y*size,(x+1)*size-1,(y+1)*size-1) | BRect(x1*size,y1*size,(x1+1)*size-1,(y1+1)*size-1));
 }
 
+void HelloView::lighten(int bigx,int bigy){
+	int x;
+	int y;
+	int pos = (bigy*size*size)*16 + bigx*size;  
+	
+	for(y=0;y<size;y++)		
+		for(x=0;x<size;x++)	
+			buffer[pos+(y*16*size)+x]=lighter[buffer[pos+(y*16*size)+x]];	
+
+	Draw(BRect(bigx*size,bigy*size,(bigx+1)*size-1,(bigy+1)*size-1));		
+}			
 
 
 //	! M O U S E D O W N !
@@ -317,38 +346,52 @@ void HelloView::MouseDown(BPoint cursor)
 	int oldx;
 	int	oldy;
 	
-	int	x=cursor.x/SIZE;
-	int	y=cursor.y/SIZE;
-		
-	do 
-	{  
-		oldx=x;
-		oldy=y;
+	int	x=(int)(cursor.x/size);
+	int	y=(int)(cursor.y/size);
+ 
+	if (level[y*16+x] & 128){
 
-		x=cursor.x/SIZE;
-		y=cursor.y/SIZE;
-		
-		if (oldx!=x || oldy!=y)
-		{	
-			piece.x=oldx;	piece.y=oldy;
-
-// Set direction
-			if (x>oldx)
-			{ piece.dirx=1; piece.diry=0;}
-			if (x<oldx)
-			{ piece.dirx=-1; piece.diry=0;}
-			if (y>oldy)
-			{ piece.dirx=0; piece.diry=1;}
-			if (y<oldy)
-			{ piece.dirx=0; piece.diry=-1;}
+	 //	gör ljusare	
+	lighten (x,y);
+	
+		do 
+		{  
+			oldx=x;
+			oldy=y;
+	
+			x=(int)(cursor.x/size);
+			y=(int)(cursor.y/size);
 			
-			if (level[piece.y*16+piece.x] & 128) go(piece);
-		}
-		
-		snooze(30 * 1000); 
-		GetMouse(&cursor, &buttons,checkMessageQueue = true); 
+			if (oldx!=x || oldy!=y)
+			{	
+				piece.x=oldx;	piece.y=oldy;
+	
+	// Set direction
+				if (x>oldx)
+				{ piece.dirx=1; piece.diry=0;}
+				if (x<oldx)
+				{ piece.dirx=-1; piece.diry=0;}
+				if (y>oldy)
+				{ piece.dirx=0; piece.diry=1;}
+				if (y<oldy)
+				{ piece.dirx=0; piece.diry=-1;}
+				
+				origin.x=piece.x;
+				origin.y=piece.y;
+				origin.dirx=piece.dirx;
+				origin.diry=piece.diry;
+				
+				go(piece);
+			}
+			
+			snooze(30 * 1000); 
+			GetMouse(&cursor, &buttons,checkMessageQueue = true); 
+	
+		} while ( buttons && (oldx==x) && (oldy==y)); 
+	update(oldx,oldy);
+	Invalidate(BRect(oldx*size,oldy*size,(oldx+1)*size-1,(oldy+1)*size-1));		
+	}
 
-	} while ( buttons && (oldx==x) && (oldy==y)); 
 }
 
 
@@ -359,5 +402,6 @@ void HelloView::Draw(BRect rect)
 
 HelloView::~HelloView()
 {
+	snd->sp.Stop();
 	delete	bitmap;
 }
