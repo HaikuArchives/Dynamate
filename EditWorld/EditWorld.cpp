@@ -28,7 +28,7 @@ main()
 }
 
 HelloApplication::HelloApplication()
-		  		  : BApplication('HLWD')
+		  		  : BApplication("application/x-vnd.Norberg.Dynamate.EditWorld")
 {
 	HelloWindow		*aWindow;
 	HelloView		*aView;

@@ -6,13 +6,16 @@
 	
 */
 
+#include <Bitmap.h>
 #include <Directory.h>
+#include <Entry.h>
+#include <File.h>
 
 #ifndef HELLO_VIEW_H
 #include "EditView.h"
 #endif
 
-const pixize=12;
+static const int pixize=12;
 
 HelloView::HelloView(BRect rect, char *name)
 	   	   : BView(rect, name, B_FOLLOW_ALL, B_WILL_DRAW)
