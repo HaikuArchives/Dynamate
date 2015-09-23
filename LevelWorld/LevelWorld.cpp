@@ -28,10 +28,10 @@ main()
 }
 
 HelloApplication::HelloApplication()
-		  		  : BApplication('HLWD')
+		  		  : BApplication("application/x-vnd.Jonas-DynaMateLevEd")
 {
 	HelloWindow		*aWindow;
-	HelloView		*aView;
+	LevelView		*aView;
 	BRect			aRect;
 
 	// set up a rectangle and instantiate a new window
@@ -41,7 +41,7 @@ HelloApplication::HelloApplication()
 	// set up a rectangle and instantiate a new view
 	// view rect should be same size as window rect but with left top at (0, 0)
 	aRect.OffsetTo(B_ORIGIN);
-	aView = new HelloView(aRect, "View");
+	aView = new LevelView(aRect, "View");
 	
 	// add view to window
 	aWindow->AddChild(aView);

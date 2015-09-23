@@ -1,19 +1,40 @@
 /*
 	
-	HelloView.cpp
+	LevelView.cpp
 	
 	Copyright 1995 Be Incorporated, All Rights Reserved.
 	
 */
 
 //#include <Directory.h>
+#include <Entry.h>
+#include <File.h>
 
 #ifndef HELLO_VIEW_H
 #include "LevelView.h"
 #endif
 
+#include "../DynaMate/headers/pieces16.h"
+#include "../DynaMate/headers/pieces24.h"
 
-HelloView::HelloView(BRect rect, char *name)
+uint8  p[48]={
+	S_GRAY,                 S_RED,          S_GREEN,                S_BLUE,
+	S_BLACK,                S_YELLOW,       S_GLUE3,                S_GLUE5,
+	S_PASS_VERT,            S_PASS_HORI,    S_TELEP_0,              S_TELEP_1,
+	S_CYKLECOL,             S_CYKLEDIR_CW,  S_CYKLEDIR_CCW,         S_DEATH,
+
+	M_GRAY,                 M_RED,          M_GREEN,                M_BLUE,
+	M_BLACK,                M_YELLOW,       M_GLUE3,                M_GLUE5,
+	M_PASS_VERT,            M_PASS_HORI,    M_TELEP_0,              M_TELEP_1,
+	M_CYKLECOL,             M_CYKLEDIR_CW,  M_CYKLEDIR_CCW,         M_DEATH,
+
+	S_GLUE0,                M_GLUE0,        S_EMPTY,                S_EMPTY,
+	S_EMPTY,                S_EMPTY,        S_EMPTY,                S_EMPTY,
+	S_EMPTY,                S_EMPTY,        S_EMPTY,                S_EMPTY,
+	S_EMPTY,                S_EMPTY,        S_EMPTY,                S_EMPTY };
+
+
+LevelView::LevelView(BRect rect, char *name)
 	   	   :BView(rect, name, B_FOLLOW_ALL, B_WILL_DRAW)
 {
 
@@ -55,7 +76,7 @@ HelloView::HelloView(BRect rect, char *name)
 }
 
 
-void HelloView::DrawAll()
+void LevelView::DrawAll()
 {
 	int x;
 	int y;
@@ -69,13 +90,13 @@ void HelloView::DrawAll()
 }
 
 
-uint8 *HelloView::const2point(uint8 piece)
+uint8 *LevelView::const2point(uint8 piece)
 {
-#include "const2point.h"
+#include "../DynaMate/headers/const2point.h"
 }
 
 		
-void HelloView::load256(BEntry *entry, uint32 filesize, uint8 *buff)
+void LevelView::load256(BEntry *entry, uint32 filesize, uint8 *buff)
 {
 	BFile	*file;
 
@@ -98,7 +119,7 @@ void HelloView::load256(BEntry *entry, uint32 filesize, uint8 *buff)
 }
 
 
-void HelloView::savelev(BEntry *entry)
+void LevelView::savelev(BEntry *entry)
 {
 	BFile	*file;
 	file=new BFile(entry,(ulong) B_WRITE_ONLY+B_CREATE_FILE);
@@ -110,7 +131,7 @@ void HelloView::savelev(BEntry *entry)
 }
 
 
-void HelloView::MouseDown(BPoint cursor)
+void LevelView::MouseDown(BPoint cursor)
 {
 	uint32	buttons=0;
 	bool	checkMessageQueue;
@@ -166,7 +187,7 @@ void HelloView::MouseDown(BPoint cursor)
 
 }
 
-void HelloView::update(int x,int y)
+void LevelView::update(int x,int y)
 {
 	int x1;
 	int y1;
@@ -184,7 +205,7 @@ void HelloView::update(int x,int y)
 
 }		
 
-void HelloView::MessageReceived(BMessage *message)
+void LevelView::MessageReceived(BMessage *message)
 { 
 	switch ( message->what )
 	{			
@@ -201,12 +222,12 @@ void HelloView::MessageReceived(BMessage *message)
 									}
 									break;
 									
-		default	:	inherited::MessageReceived(message);
+		default	:	BView::MessageReceived(message);
 								break;
 	}
 }
    
-void HelloView::Draw(BRect)
+void LevelView::Draw(BRect)
 {
 	DrawBitmap(bitmap,BPoint(0,0));
 	DrawBitmap(pbitmap,BPoint(0,256));
@@ -215,7 +236,7 @@ void HelloView::Draw(BRect)
 }
 
 
-HelloView::~HelloView()
+LevelView::~LevelView()
 {
 	delete	bitmap;
 	delete	pbitmap;
