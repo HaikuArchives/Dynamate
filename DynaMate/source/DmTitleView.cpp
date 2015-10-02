@@ -8,7 +8,6 @@
 
 DmTitleView::DmTitleView(BRect rect, uint16 totalmovespoint,uint16 stonesleftpoint, uint8 recordpoint):BView(rect, "OST"/*name*/, B_FOLLOW_ALL, B_WILL_DRAW)
 {
-puts("bozze");
 //	titelkillen
 	bitmap=new BBitmap(BRect(0,0,63,62),B_COLOR_8_BIT);
 	bitmap->SetBits(title, 64*63, 0, B_COLOR_8_BIT);
@@ -32,7 +31,6 @@ puts("bozze");
 
 void DmTitleView::Draw(BRect rect)
 {
-puts("Bosse");
 	/*if (rect.top<70)*/ DrawBitmap(bitmap, BPoint(size*8-32,size*8-32));
 	if (stonesleft!=65535){
 //		if (rect.top<102 & rect.bottom>92){
