@@ -35,19 +35,18 @@ uint8  p[48]={
 
 
 LevelView::LevelView(BRect rect, char *name)
-	   	   :BView(rect, name, B_FOLLOW_ALL, B_WILL_DRAW)
+	:
+	BView(rect, name, B_FOLLOW_ALL, B_WILL_DRAW),
+	entry(new BEntry("default",true)),
+	gfx(NULL),
+	piece(0),
+	bitmap(new BBitmap(BRect(0,0,255,255),B_COLOR_8_BIT)),
+	pbitmap(new BBitmap(BRect(0,0,255,47),B_COLOR_8_BIT)),
+	size(16)
 {
-
-	piece=0;
-	
-	bitmap=new BBitmap(BRect(0,0,255,255),B_COLOR_8_BIT);
 	buffer=(uint8 *)bitmap->Bits();
-
-	pbitmap=new BBitmap(BRect(0,0,255,47),B_COLOR_8_BIT);
 	pbuffer=(uint8 *)pbitmap->Bits();
 
-	entry = new BEntry("default",true);
-	
 // Rita upp banan med grafik on the bitmap. 
 	int x;
 	int y;
@@ -57,7 +56,7 @@ LevelView::LevelView(BRect rect, char *name)
 	DrawAll();
 
 // Rita upp de bitar man får välja mellan.
-				
+
 	for (y1=0;y1<3;y1++)
 	{
 		for (x1=0;x1<16;x1++)
@@ -111,7 +110,7 @@ void LevelView::load256(BEntry *entry, uint32 filesize, uint8 *buff)
 		int count;
 		for (count=0;count<filesize;count++)
 		{
-			buff[count]=0;			
+			buff[count]=0;
 		}
 	}
 
@@ -172,7 +171,7 @@ void LevelView::MouseDown(BPoint cursor)
 			}	
 
 		}
-		
+
 		snooze(30 * 1000); 
 		GetMouse(&cursor, &buttons,checkMessageQueue = true); 
 
@@ -192,9 +191,9 @@ void LevelView::update(int x,int y)
 	int x1;
 	int y1;
 	uint8	*gfx;	
-	
+
 	gfx=const2point(level[y*16+x]);
-	
+
 	for (y1=0;y1<16;y1++)
 	{
 		for (x1=0;x1<16;x1++)
@@ -203,30 +202,32 @@ void LevelView::update(int x,int y)
 		}
 	}
 
-}		
+}
 
 void LevelView::MessageReceived(BMessage *message)
-{ 
+{
 	switch ( message->what )
-	{			
-		case	B_SIMPLE_DATA	:	{
-									entry_ref ref;
-									if( message->FindRef("refs", &ref) == B_OK )
-										{
-										if (entry) delete entry;
-										entry=new BEntry(&ref,true);
-										load256(entry,256,level);
-										DrawAll();
-										Draw(BRect(0,0,255,255));										
-										}
-									}
-									break;
-									
-		default	:	BView::MessageReceived(message);
-								break;
+	{
+		case B_SIMPLE_DATA :
+		{
+			entry_ref ref;
+			if( message->FindRef("refs", &ref) == B_OK )
+			{
+				if (entry) delete entry;
+				entry=new BEntry(&ref,true);
+				load256(entry,256,level);
+				DrawAll();
+				Draw(BRect(0,0,255,255));
+			}
+		}
+		break;
+
+		default :
+			BView::MessageReceived(message);
+			break;
 	}
 }
-   
+
 void LevelView::Draw(BRect)
 {
 	DrawBitmap(bitmap,BPoint(0,0));
