@@ -11,6 +11,6 @@ LevelWorld/LevelWorld: LevelWorld/*.cpp LevelWorld/*.h LevelWorld/LevelWorld.rde
 	xres -o $@ $@.rsrc
 
 DynaMate/DynaMate: DynaMate/source/*.cpp DynaMate/headers/*.h DynaMate/DynaMate.rdef
-	gcc source/*.cpp -I headers/ -o $@ -lbe -lmedia
-	rc -o $@ DynaMate.rdef
+	gcc DynaMate/source/*.cpp -I DynaMate/headers/ -o $@ -lbe -lmedia
+	rc -o $@ DynaMate/DynaMate.rdef
 	xres -o $@ $@.rsrc

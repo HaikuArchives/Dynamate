@@ -6,9 +6,11 @@
 	
 */
 
-#ifndef _APPLICATION_H
 #include <Application.h>
-#endif
+#include <GroupLayout.h>
+#include <MenuBar.h>
+
+#include "LevelView.h"
 
 #ifndef HELLO_WINDOW_H
 #include "LevelWindow.h"
@@ -17,8 +19,31 @@
 void set_palette_entry(long i,rgb_color c);
 
 HelloWindow::HelloWindow(BRect frame)
-				: BWindow(frame, "LevelWorld",  B_TITLED_WINDOW, B_NOT_ZOOMABLE+B_NOT_RESIZABLE)
+	: BWindow(frame, "LevelWorld",  B_TITLED_WINDOW, B_NOT_ZOOMABLE | B_NOT_RESIZABLE)
 {
+	BMenuBar* bar = new BMenuBar("menu");
+	BView* aView = new LevelView("View");
+
+	BGroupLayout* layout = new BGroupLayout(B_VERTICAL);
+	SetLayout(layout);
+	layout->SetSpacing(0.f);
+
+	AddChild(bar);
+	AddChild(aView);
+
+	BMenu* fileMenu = new BMenu("Level");
+	BMenuItem* loadMenu = new BMenuItem("Open", NULL, 'O');
+	BMenuItem* saveMenu = new BMenuItem("Save", new BMessage('SAVE'), 'S');
+	BMenuItem* saveAsMenu = new BMenuItem("Save As" B_UTF8_ELLIPSIS, NULL, 'S', B_SHIFT_KEY);
+
+	loadMenu->SetTarget(aView);
+	saveMenu->SetTarget(aView);
+	saveAsMenu->SetTarget(aView);
+
+	bar->AddItem(fileMenu);
+	fileMenu->AddItem(loadMenu);
+	fileMenu->AddItem(saveMenu);
+	fileMenu->AddItem(saveAsMenu);
 }
 
 bool HelloWindow::QuitRequested()

@@ -34,9 +34,9 @@ uint8  p[48]={
 	S_EMPTY,                S_EMPTY,        S_EMPTY,                S_EMPTY };
 
 
-LevelView::LevelView(BRect rect, char *name)
+LevelView::LevelView(char *name)
 	:
-	BView(rect, name, B_FOLLOW_ALL, B_WILL_DRAW),
+	BView(name, B_WILL_DRAW),
 	entry(new BEntry("default",true)),
 	gfx(NULL),
 	piece(0),
@@ -137,15 +137,15 @@ void LevelView::MouseDown(BPoint cursor)
 
 	int oldx;
 	int	oldy;
-	
+
 	int x1;
 	int y1;
-	
-	int	x=cursor.x/16;
-	int	y=cursor.y/16;
-		
-	do 
-	{  
+
+	int	x=(int)cursor.x/16;
+	int	y=(int)cursor.y/16;
+
+	do
+	{
 		if (oldx!=x || oldy!=y)
 		{
 			if (y<16)
@@ -161,15 +161,11 @@ void LevelView::MouseDown(BPoint cursor)
 					}
 				}
 				Draw(BRect(0,0,255,255));
-			}else{
-				if (y<19){//	Man är över paletten (och har flyttat sig)
-					piece=p[(y-16)*16 +x];
-					Draw(BRect(0,256,256,256+64));
-				}else{
-					savelev(entry);
-				}
-			}	
-
+			} else if (y<19) {
+				// We are over the palette, change the selected object type
+				piece=p[(y-16)*16 +x];
+				Draw(BRect(0,256,256,256+64));
+			}
 		}
 
 		snooze(30 * 1000); 
@@ -178,8 +174,8 @@ void LevelView::MouseDown(BPoint cursor)
 		oldx=x;
 		oldy=y;
 
-		x=cursor.x/16;
-		y=cursor.y/16;
+		x=(int)cursor.x/16;
+		y=(int)cursor.y/16;
 
 	} while ( buttons ); 
 
@@ -222,6 +218,10 @@ void LevelView::MessageReceived(BMessage *message)
 		}
 		break;
 
+		case 'SAVE':
+			savelev(entry);
+			break;
+
 		default :
 			BView::MessageReceived(message);
 			break;
@@ -230,10 +230,11 @@ void LevelView::MessageReceived(BMessage *message)
 
 void LevelView::Draw(BRect)
 {
+	// Draw the level
 	DrawBitmap(bitmap,BPoint(0,0));
+
+	// Draw the "toolbar" at the bottom
 	DrawBitmap(pbitmap,BPoint(0,256));
-	MovePenTo(115,251+4*16);
-	DrawString("SAVE");
 }
 
 

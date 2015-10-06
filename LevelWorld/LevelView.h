@@ -39,7 +39,7 @@
 		void	MessageReceived(BMessage *message);
 
 	public:
-					LevelView(BRect frame, char *name); 
+					LevelView(char *name); 
 					~LevelView();
 	virtual void	Draw(BRect updateRect);
 	virtual void	MouseDown(BPoint); 
