@@ -1,102 +1,127 @@
-<html> <head> <title>DynaMate: GamePlay</title>
-</head>
+<!doctype html>
 
-<body bgcolor="black" text="lightgray" link="#BB2222"
-vlink="#881111">
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+    <link rel="stylesheet" href="main.css">
 
-<p><hr> <b>HOW TO PLAY</b><p>
+    <title>DynaMate: GamePlay</title>
+  </head>
 
-You move pieces by dragging them. A piece slide until it hit something. 
-If it slides out of the game the level is abandoned. If a piece has a
-circle around it it can't be moved.<p>
+  <body>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <div class="col s12">
+            <a href="DynaMate.html" class="large-font"><b>DynaMate<b></a>
 
-<center>
-<img width=32 height=32 src="gif/red.gif">
-<img width=32 height=32 src="gif/green.gif">
-<img width=32 height=32 src="gif/blue.gif">
-<p>
-</center>
+            <div class="right-nav">
+              <a href="Haiku.html" class="btn-flat"><b>Haiku<b></a>
+              <a href="GamePlay.html" class="btn-flat"><b>GamePlay<b></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
 
-The goal of the game is to get
-rid of all stones (red, green, blue, black, yellow).  If certain
-stones collide in certain ways they both dissapear. The following
-moves causes the involved stones to dissapear:<p> <blockquote>
-	A red stone dragged to a green.<br>
-	A green stone dragged to a blue.<br>
-	A blue stone dragged to a red.<br>
-	(note the circularity)<p>
+    <br>
 
-<center>
-<img width=32 height=32 src="gif/black.gif">
-<img width=32 height=32 src="gif/yellow.gif"><p>	
-</center>
+    <div class="container">
+      <h5><u>HOW TO PLAY</u></h5>
 
-	A black stone dragged to any other stone.<br>
-	Any stone(exept yellow) dragged to a yellow<br>
-	(note the hierarcy)<br> </blockquote>
+      You move pieces by dragging them. A piece slide until it hit something.
+      If it slides out of the game the level is abandoned. If a piece has a
+      circle around it it can't be moved.<br><br>
 
-If stones collide in any other way the dragged stone just stops.  (wich
-will show essential to the game later)<br> If a red is dragged on a row
-of green they all will dissapear, the domino effect. the same holds for
-a black dragged to a row of stones in all colours.<br> The above
-described is the only way of getting rid of stones.<p>
+      <center>
+        <img width=32 height=32 src="gif/red.gif">
+        <img width=32 height=32 src="gif/green.gif">
+        <img width=32 height=32 src="gif/blue.gif">
+      </center><br>
 
-Observe: With stones is meant only the red, green, blue, green, black,
-yellow. The others are called pieces.<br> Now you know enough to play
-the level called tutorial. Do that.<p>
+      The goal of the game is to get
+      rid of all stones (red, green, blue, black, yellow).  If certain
+      stones collide in certain ways they both dissapear. The following
+      moves causes the involved stones to dissapear:<br>
+      <blockquote>
+      	A red stone dragged to a green.<br>
+      	A green stone dragged to a blue.<br>
+      	A blue stone dragged to a red.<br>
+      	(note the circularity)<br>
+      </blockquote>
 
-<center>
-<img width=32 height=32 src="gif/gray.gif"><p>
-</center>
+      <center>
+        <img width=32 height=32 src="gif/black.gif">
+        <img width=32 height=32 src="gif/yellow.gif">
+      </center><br>
 
-The all gray piece is the boring guy around here. It is used to stack
-other pieces on. (you stack stones on stones to, if they are stacked in
-the right order)<p>
+      <blockquote>
+      	A black stone dragged to any other stone.<br>
+      	Any stone(exept yellow) dragged to a yellow<br>
+      	(note the hierarcy)<br>
+      </blockquote>
 
-<center>
-<img width=32 height=32 src="gif/teleport.gif"><p>
-</center>
+      If stones collide in any other way the dragged stone just stops.  (wich
+      will show essential to the game later).<br> If a red is dragged on a row
+      of green they all will dissapear, the domino effect. the same holds for
+      a black dragged to a row of stones in all colours.<br> The above
+      described is the only way of getting rid of stones.<br>
 
-The piece with a lightning is a teleporter, they work in pairs
-only. If something enter one of them it exits the other with unchanged
-direction. If you drag one teleporter to the other it just continues
-right through it.<p>
+      Observe: With stones is meant only the red, green, blue, green, black,
+      yellow. The others are called pieces.<br> Now you know enough to play
+      the level called tutorial. Do that.<br>
 
-<center>
-<img width=32 height=32 src="gif/colcykle.gif"><p>
-</center>
+      <center>
+        <img width=32 height=32 src="gif/gray.gif">
+      </center><br>
 
-The piece that looks like small red, green, blue stones cykles
-the colour of red, green and blue stones.<p>
+      The all gray piece is the boring guy around here. It is used to stack
+      other pieces on. (you stack stones on stones to, if they are stacked in
+      the right order)<br>
 
-<center>
-<img width=32 height=32 src="gif/arrow.gif"><p>
-</center>
+      <center>
+        <img width=32 height=32 src="gif/teleport.gif">
+      </center><br>
 
-The piece with straight arrows on it only let pieces through
-in the direction of the arrow.<p>
+      The piece with a lightning is a teleporter, they work in pairs
+      only. If something enter one of them it exits the other with unchanged
+      direction. If you drag one teleporter to the other it just continues
+      right through it.<br>
 
-<center>
-<img width=32 height=32 src="gif/dircykle.gif"><p>
-</center>
+      <center>
+        <img width=32 height=32 src="gif/colcykle.gif">
+      </center><br>
 
-The piece with a circular arrow on it changes the direction of things
-that go through it.<p>
+      The piece that looks like small red, green, blue stones cykles
+      the colour of red, green and blue stones.<br>
 
-<center>
-<img width=32 height=32 src="gif/death.gif"><p>
-</center>
+      <center>
+        <img width=32 height=32 src="gif/arrow.gif">
+      </center><br>
 
-The skull abandones the level when something is dragged to
-it.<p>
+      The piece with straight arrows on it only let pieces through
+      in the direction of the arrow.<br>
 
-<hr>
-That might have seemed awfully complicated. It ain't! <p>
-Just play around a while and you'll get the point. The most
-important thing to learn is the order of the red - green - blue
-stones.<p>
+      <center>
+        <img width=32 height=32 src="gif/dircykle.gif">
+      </center><br>
 
-Good Luck!
-</body>
+      The piece with a circular arrow on it changes the direction of things
+      that go through it.<br>
+
+      <center>
+        <img width=32 height=32 src="gif/death.gif">
+      </center><br>
+
+      The skull abandones the level when something is dragged to
+      it.<br><br>
+
+      That might have seemed awfully complicated; it really isn't!<br>
+      Just play around a while and you'll get the point. The most
+      important thing to learn is the order of the red - green - blue
+      stones.<br><br>
+
+      Good Luck!
+    </div>
+  </body>
 </html>
-  
