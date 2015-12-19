@@ -6,37 +6,37 @@
 	
 */
 
-#ifndef HELLO_WINDOW_H
+#ifndef LEVELWINDOW_H
 #include "LevelWindow.h"
 #endif
-#ifndef HELLO_VIEW_H
+#ifndef LEVELVIEW_H
 #include "LevelView.h"
 #endif
-#ifndef HELLO_WORLD_H
+#ifndef LEVELWORLD_H
 #include "LevelWorld.h"
 #endif
 
 main()
 {	
-	HelloApplication *myApplication;
+	LevelApplication *myApplication;
 
-	myApplication = new HelloApplication();
+	myApplication = new LevelApplication();
 	myApplication->Run();
 	
 	delete(myApplication);
 	return(0);
 }
 
-HelloApplication::HelloApplication()
+LevelApplication::LevelApplication()
 	: BApplication("application/x-vnd.Jonas-DynaMateLevEd")
 {
-	HelloWindow		*aWindow;
+	LevelWindow		*aWindow;
 	LevelView		*aView;
 	BRect			aRect;
 
 	// set up a rectangle and instantiate a new window
 	aRect.Set(50,50,50+255,50+255+64);
-	aWindow = new HelloWindow(aRect);
+	aWindow = new LevelWindow(aRect);
 	
 	// set up a rectangle and instantiate a new view
 	// view rect should be same size as window rect but with left top at (0, 0)

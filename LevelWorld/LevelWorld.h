@@ -6,17 +6,17 @@
 
 */
 
-#ifndef HELLO_WORLD_H
-#define HELLO_WORLD_H
+#ifndef LEVELWORLD_H
+#define LEVELWORLD_H
 
 #ifndef _APPLICATION_H
 #include <Application.h>
 #endif
 
-class HelloApplication : public BApplication {
+class LevelApplication : public BApplication {
 
 public:
-					HelloApplication();
+					LevelApplication();
 };
 
 #endif

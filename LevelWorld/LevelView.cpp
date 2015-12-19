@@ -9,13 +9,22 @@
 //#include <Directory.h>
 #include <Entry.h>
 #include <File.h>
+#include <Messenger.h>
+#include <Path.h>
 
-#ifndef HELLO_VIEW_H
+#ifndef LEVELVIEW_H
 #include "LevelView.h"
 #endif
 
 #include "../DynaMate/headers/pieces16.h"
 #include "../DynaMate/headers/pieces24.h"
+
+enum
+{
+	SAVE = 'save',
+	LOAD = 'load',
+	SAVE_AS = 'svas'
+};
 
 uint8  p[48]={
 	S_GRAY,                 S_RED,          S_GREEN,                S_BLUE,
@@ -71,7 +80,9 @@ LevelView::LevelView(char *name)
 			}
 		}
 	}
-
+	
+	fOpenPanel = new BFilePanel(B_OPEN_PANEL, NULL, NULL, 0, false);
+	fSavePanel = new BFilePanel(B_SAVE_PANEL, NULL, NULL, 0, false);
 }
 
 
@@ -103,6 +114,8 @@ void LevelView::load256(BEntry *entry, uint32 filesize, uint8 *buff)
 	if (file->InitCheck()==B_NO_ERROR)
 	{
 		file->Read(buff, filesize);
+		
+		bitmap->SetBits(buff, sizeof(buff), 0, B_RGB32);
 	}
 	else
 	{
@@ -204,7 +217,8 @@ void LevelView::MessageReceived(BMessage *message)
 {
 	switch ( message->what )
 	{
-		case B_SIMPLE_DATA :
+		case B_SIMPLE_DATA:
+		case B_REFS_RECEIVED:
 		{
 			entry_ref ref;
 			if( message->FindRef("refs", &ref) == B_OK )
@@ -215,16 +229,44 @@ void LevelView::MessageReceived(BMessage *message)
 				DrawAll();
 				Draw(BRect(0,0,255,255));
 			}
+			
+			break;
 		}
-		break;
-
-		case 'SAVE':
+		case SAVE:
+		{
 			savelev(entry);
 			break;
-
-		default :
+		}
+		case LOAD:
+		{
+			fOpenPanel->SetTarget(this);
+			fOpenPanel->Show();
+			break;
+		}
+		case SAVE_AS:
+		{
+			fSavePanel->SetTarget(this);
+			fSavePanel->Show();
+			break;
+		}
+		case B_SAVE_REQUESTED:
+		{
+			entry_ref dir;
+			BString name;
+			if (message->FindRef("directory", &dir) == B_OK &&
+				message->FindString("name", &name) == B_OK)
+			{
+				BPath path(&dir);
+				path.Append(name);
+				BEntry my_entry(path.Path());
+				savelev(&my_entry);
+			}
+		}
+		default:
+		{
 			BView::MessageReceived(message);
 			break;
+		}
 	}
 }
 
@@ -242,4 +284,7 @@ LevelView::~LevelView()
 {
 	delete	bitmap;
 	delete	pbitmap;
+	
+	delete fOpenPanel;
+	delete fSavePanel;
 }

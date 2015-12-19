@@ -6,17 +6,17 @@
 	
 */
 
-#ifndef HELLO_WINDOW_H
-#define HELLO_WINDOW_H
+#ifndef LEVELWINDOW_H
+#define LEVELWINDOW_H
 
 #ifndef _WINDOW_H
 #include <Window.h>
 #endif
 
-class HelloWindow : public BWindow {
+class LevelWindow : public BWindow {
 
 public:
-				HelloWindow(BRect frame); 
+				LevelWindow(BRect frame); 
 virtual	bool	QuitRequested();
 };
 
