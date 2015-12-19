@@ -15,12 +15,17 @@
 
 #include "../DynaMate/headers/DmView.h"
 
+#include <FilePanel.h>
+
 	class LevelView : public BView 
 	{
 	private:
 		BEntry	*entry;
 		uint8	*gfx;
 		uint8	piece;			// Den piecen man ritar med.
+		
+		BFilePanel *fOpenPanel;
+		BFilePanel *fSavePanel;
 
 		BBitmap	*bitmap;		// Bilden på skärmen.
 		uint8	*buffer;

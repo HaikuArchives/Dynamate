@@ -9,6 +9,9 @@
 //#include <Directory.h>
 #include <Entry.h>
 #include <File.h>
+#include <Messenger.h>
+#include <Path.h>
+#include <FilePanel.h>
 
 #ifndef HELLO_VIEW_H
 #include "LevelView.h"
@@ -16,6 +19,13 @@
 
 #include "../DynaMate/headers/pieces16.h"
 #include "../DynaMate/headers/pieces24.h"
+
+enum
+{
+	SAVE = 'save',
+	LOAD = 'load',
+	SAVE_AS = 'svas'
+};
 
 uint8  p[48]={
 	S_GRAY,                 S_RED,          S_GREEN,                S_BLUE,
@@ -71,7 +81,12 @@ LevelView::LevelView(char *name)
 			}
 		}
 	}
-
+	
+	//BMessenger msgr(this->Window());
+	//fOpenPanel = new BFilePanel(B_OPEN_PANEL, &msgr, NULL, 0, false);
+	//fSavePanel = new BFilePanel(B_SAVE_PANEL, &msgr, NULL, 0, false);
+	fOpenPanel = new BFilePanel(B_OPEN_PANEL, NULL, 0, false);
+	fSavePanel = new BFilePanel(B_SAVE_PANEL, NULL, 0, false);
 }
 
 
@@ -103,6 +118,9 @@ void LevelView::load256(BEntry *entry, uint32 filesize, uint8 *buff)
 	if (file->InitCheck()==B_NO_ERROR)
 	{
 		file->Read(buff, filesize);
+		
+		bitmap->SetBits(buff, sizeof(buff), 0, B_RGB32);
+		buffer = buff;
 	}
 	else
 	{
@@ -204,7 +222,7 @@ void LevelView::MessageReceived(BMessage *message)
 {
 	switch ( message->what )
 	{
-		case B_SIMPLE_DATA :
+		case B_SIMPLE_DATA:
 		{
 			entry_ref ref;
 			if( message->FindRef("refs", &ref) == B_OK )
@@ -215,16 +233,42 @@ void LevelView::MessageReceived(BMessage *message)
 				DrawAll();
 				Draw(BRect(0,0,255,255));
 			}
+			
+			break;
 		}
-		break;
-
-		case 'SAVE':
+		case SAVE:
+		{
 			savelev(entry);
 			break;
-
-		default :
+		}
+		case LOAD:
+		{
+			fOpenPanel->Show();
+			break;
+		}
+		case SAVE_AS:
+		{
+			fSavePanel->Show();
+			break;
+		}
+		case B_SAVE_REQUESTED:
+		{
+			entry_ref dir;
+			BString name;
+			if (message->FindRef("directory", &dir) == B_OK &&
+				message->FindString("name", &name) == B_OK)
+			{
+				BPath path(&dir);
+				path.Append(name);
+				BEntry my_entry(path.Path());
+				savelev(&my_entry);
+			}
+		}
+		default:
+		{
 			BView::MessageReceived(message);
 			break;
+		}
 	}
 }
 
