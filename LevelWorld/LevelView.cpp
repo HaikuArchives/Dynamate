@@ -11,9 +11,8 @@
 #include <File.h>
 #include <Messenger.h>
 #include <Path.h>
-#include <FilePanel.h>
 
-#ifndef HELLO_VIEW_H
+#ifndef LEVELVIEW_H
 #include "LevelView.h"
 #endif
 
@@ -82,11 +81,8 @@ LevelView::LevelView(char *name)
 		}
 	}
 	
-	//BMessenger msgr(this->Window());
-	//fOpenPanel = new BFilePanel(B_OPEN_PANEL, &msgr, NULL, 0, false);
-	//fSavePanel = new BFilePanel(B_SAVE_PANEL, &msgr, NULL, 0, false);
-	fOpenPanel = new BFilePanel(B_OPEN_PANEL, NULL, 0, false);
-	fSavePanel = new BFilePanel(B_SAVE_PANEL, NULL, 0, false);
+	fOpenPanel = new BFilePanel(B_OPEN_PANEL, NULL, NULL, 0, false);
+	fSavePanel = new BFilePanel(B_SAVE_PANEL, NULL, NULL, 0, false);
 }
 
 
@@ -120,7 +116,6 @@ void LevelView::load256(BEntry *entry, uint32 filesize, uint8 *buff)
 		file->Read(buff, filesize);
 		
 		bitmap->SetBits(buff, sizeof(buff), 0, B_RGB32);
-		buffer = buff;
 	}
 	else
 	{
@@ -223,6 +218,7 @@ void LevelView::MessageReceived(BMessage *message)
 	switch ( message->what )
 	{
 		case B_SIMPLE_DATA:
+		case B_REFS_RECEIVED:
 		{
 			entry_ref ref;
 			if( message->FindRef("refs", &ref) == B_OK )
@@ -243,11 +239,13 @@ void LevelView::MessageReceived(BMessage *message)
 		}
 		case LOAD:
 		{
+			fOpenPanel->SetTarget(this);
 			fOpenPanel->Show();
 			break;
 		}
 		case SAVE_AS:
 		{
+			fSavePanel->SetTarget(this);
 			fSavePanel->Show();
 			break;
 		}
@@ -286,4 +284,7 @@ LevelView::~LevelView()
 {
 	delete	bitmap;
 	delete	pbitmap;
+	
+	delete fOpenPanel;
+	delete fSavePanel;
 }
