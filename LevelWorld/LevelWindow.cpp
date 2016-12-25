@@ -20,7 +20,9 @@ enum
 {
 	SAVE = 'save',
 	LOAD = 'load',
-	SAVE_AS = 'svas'
+	SAVE_AS = 'svas',
+	QUIT_REQUEST = 'qtrq'
+	
 };
 
 void set_palette_entry(long i,rgb_color c);
@@ -29,7 +31,7 @@ LevelWindow::LevelWindow(BRect frame)
 	: BWindow(frame, "LevelWorld",  B_TITLED_WINDOW, B_NOT_ZOOMABLE | B_NOT_RESIZABLE)
 {
 	BMenuBar* bar = new BMenuBar("menu");
-	BView* aView = new LevelView("View");
+	BView *aView = new LevelView("View");
 
 	BGroupLayout* layout = new BGroupLayout(B_VERTICAL);
 	SetLayout(layout);
@@ -56,8 +58,22 @@ LevelWindow::LevelWindow(BRect frame)
 	fileMenu->AddItem(saveAsMenu);
 }
 
+void LevelWindow::MessageReceived(BMessage *message)
+{
+	switch(message->what)
+	{
+		case QUIT_REQUEST:
+		{
+			be_app->PostMessage(B_QUIT_REQUESTED);
+			Quit();
+			break;
+		}
+	}
+}
+
 bool LevelWindow::QuitRequested()
 {
-	be_app->PostMessage(B_QUIT_REQUESTED);
-	return(TRUE);
+	be_app->DispatchMessage(new BMessage(QUIT_REQUEST), FindView("View"));
+	return(FALSE);
 }
+

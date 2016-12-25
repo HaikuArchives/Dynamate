@@ -35,6 +35,9 @@
 	
 		uint8	size;
 		uint8	level[256];		// Banan. (ej frukten)
+		
+		bool 	modified;
+		bool	fileExists;
 
 		void	load256(BEntry *entry,uint32 filesize,uint8 *buff);
 		void	savelev(BEntry *entry);
@@ -42,6 +45,7 @@
 		void	update(int x,int y);		
 		void	DrawAll();			
 		void	MessageReceived(BMessage *message);
+		bool	QuitLvlRequest();
 
 	public:
 					LevelView(char *name); 
