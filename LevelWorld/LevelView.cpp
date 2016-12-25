@@ -23,7 +23,8 @@ enum
 {
 	SAVE = 'save',
 	LOAD = 'load',
-	SAVE_AS = 'svas'
+	SAVE_AS = 'svas',
+	QUIT_REQUEST = 'qtrq'
 };
 
 uint8  p[48]={
@@ -51,7 +52,8 @@ LevelView::LevelView(char *name)
 	piece(0),
 	bitmap(new BBitmap(BRect(0,0,255,255),B_COLOR_8_BIT)),
 	pbitmap(new BBitmap(BRect(0,0,255,47),B_COLOR_8_BIT)),
-	size(16)
+	size(16),
+	fileExists(FALSE)
 {
 	buffer=(uint8 *)bitmap->Bits();
 	pbuffer=(uint8 *)pbitmap->Bits();
@@ -108,6 +110,11 @@ uint8 *LevelView::const2point(uint8 piece)
 		
 void LevelView::load256(BEntry *entry, uint32 filesize, uint8 *buff)
 {
+	if(!QuitLvlRequest())
+	{
+		return;	
+	}
+	
 	BFile	*file;
 
 	file=new BFile(entry,(ulong) B_READ_ONLY);
@@ -128,6 +135,9 @@ void LevelView::load256(BEntry *entry, uint32 filesize, uint8 *buff)
 	}
 
 	delete	file;
+	
+	modified = false;
+	fileExists = true;
 }
 
 
@@ -140,6 +150,9 @@ void LevelView::savelev(BEntry *entry)
 		file->Write(level, 256);
 	}
 	delete	file;
+	
+	modified = false;
+	fileExists = true;
 }
 
 
@@ -174,6 +187,9 @@ void LevelView::MouseDown(BPoint cursor)
 					}
 				}
 				Draw(BRect(0,0,255,255));
+				
+				modified = true;
+				
 			} else if (y<19) {
 				// We are over the palette, change the selected object type
 				piece=p[(y-16)*16 +x];
@@ -234,7 +250,10 @@ void LevelView::MessageReceived(BMessage *message)
 		}
 		case SAVE:
 		{
-			savelev(entry);
+			if(modified)
+			{
+				savelev(entry);
+			}
 			break;
 		}
 		case LOAD:
@@ -248,6 +267,13 @@ void LevelView::MessageReceived(BMessage *message)
 			fSavePanel->SetTarget(this);
 			fSavePanel->Show();
 			break;
+		}
+		case QUIT_REQUEST:
+		{
+			if (QuitLvlRequest())
+				Window()->PostMessage(QUIT_REQUEST);
+				
+			break;	
 		}
 		case B_SAVE_REQUESTED:
 		{
@@ -279,6 +305,49 @@ void LevelView::Draw(BRect)
 	DrawBitmap(pbitmap,BPoint(0,256));
 }
 
+bool LevelView::QuitLvlRequest()
+{
+	if(modified)
+	{
+		BAlert *closeAndSave = new BAlert("closeAndSaveDialog", 
+					"Save changes before closing?", 
+					"cancel", "Don't save", "Save", B_WIDTH_AS_USUAL, 
+					B_OFFSET_SPACING, B_WARNING_ALERT);
+		
+		closeAndSave->SetShortcut(0, B_ESCAPE);
+		
+		int32 buttonIndex = closeAndSave->Go();
+		
+		if(buttonIndex == 0)
+		{
+			return(FALSE);	
+		}
+		else if(buttonIndex == 1)
+		{
+			return(TRUE);	
+		}
+		else if (buttonIndex == 2)
+		{
+			if(fileExists)
+			{
+				savelev(entry);	
+			}
+			else
+			{
+				fSavePanel->SetTarget(this);
+				fSavePanel->Show();
+			
+				while(fSavePanel->IsShowing());
+			}
+			
+			return(TRUE);
+		}
+	}
+	else
+	{
+		return(TRUE);	
+	}
+}
 
 LevelView::~LevelView()
 {

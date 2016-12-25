@@ -18,6 +18,7 @@ class LevelWindow : public BWindow {
 public:
 				LevelWindow(BRect frame); 
 virtual	bool	QuitRequested();
+virtual void	MessageReceived(BMessage *message);
 };
 
 #endif
